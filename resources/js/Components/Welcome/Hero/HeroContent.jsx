@@ -87,7 +87,7 @@ export default function HeroContent() {
           className="mt-10 lg:mt-0 lg:ml-10 flex-shrink-0"
         >
           <img
-            src="https://img.freepik.com/free-photo/close-up-portrait-attractive-young-woman-isolated_273609-35660.jpg?t=st=1734094478~exp=1734098078~hmac=a58b4fc29074ea3b52f6cbc1592e0a7599f84a0274b098badfed62323d06bb4c&w=1380" 
+            src="https://img.freepik.com/free-photo/gift-boxed-wristwatch-mobile-phone-payment-terminal-bank-card-wooden-table_23-2148101632.jpg?uid=P109492898&ga=GA1.1.471702674.1723729231&semt=ais_hybrid" 
             alt="Illustration de l'application sur un smartphone" 
             className="w-full max-w-md rounded-lg shadow-lg h-full"
             loading="lazy"

@@ -1,22 +1,65 @@
 import { Link, usePage } from '@inertiajs/react';
 import { Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Header({ onMobileMenuToggle }) {
   const { url } = usePage();
-
-  // État pour les menus déroulants
   const [openDropdown, setOpenDropdown] = useState(null);
+  const timeoutRef = useRef(null);
 
   // Vérifie si une route est active
-  const isActive = (routeName) => url.startsWith(route(routeName));
-  console.log('isActive: ', isActive);
-  console.log('route: ', route('welcome'));
+  const isActiveRoute = (routeName) => route().current(routeName);
 
-  // Gère l'ouverture des menus déroulants
-  const toggleDropdown = (menuName) => {
-    setOpenDropdown((prev) => (prev === menuName ? null : menuName));
+  // Classes de base pour les liens du menu principal
+  const getLinkClasses = (active) =>
+    `text-base ${active ? 'text-white font-bold' : 'text-green-200 font-medium'} hover:text-white transition-colors`;
+
+  // Classes pour les liens du dropdown
+  const getDropdownLinkClasses = (active) =>
+    `block px-4 py-2 ${
+      active
+        ? 'bg-primary text-gray-100 font-bold'
+        : 'text-primary-700 hover:bg-primary hover:text-gray-100'
+    } transition-colors`;
+
+  // Sous-menus
+  const solutionsLinks = [
+    { name: 'Paiements', routeName: 'solutions.paiements' },
+    { name: 'Transport & Réservation', routeName: 'solutions.transport.reservation' },
+    { name: 'Commande & Livraison', routeName: 'solutions.commande.livraison' },
+  ];
+
+  const partenariatLinks = [
+    { name: 'Chauffeur', routeName: 'partenariat.chauffeur' },
+    { name: 'Livreur', routeName: 'partenariat.livreur' },
+    { name: 'Marchand', routeName: 'partenariat.marchand.paiement' },
+  ];
+
+  // Fonction pour ouvrir le dropdown
+  const handleMouseEnter = (menuName) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setOpenDropdown(menuName);
   };
+
+  // Fonction pour fermer le dropdown avec un délai
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+      timeoutRef.current = null;
+    }, 200); // Délai de 200ms
+  };
+
+  // Nettoyage du timeout lorsqu'un composant est démonté
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <header className="bg-primary border-b border-border">
@@ -27,7 +70,13 @@ export default function Header({ onMobileMenuToggle }) {
         <div className="w-full py-6 flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center">
-            <Link href="/" aria-label="Retour à l'accueil">
+            <Link href="/" aria-label="Retour à l'accueil" className='flex flex-row gap-0'>
+              <img
+                className="h-10 w-auto"
+                src="/images/logo/brandingGn.png"
+                alt="Logo Lassiri"
+                loading="lazy"
+              />
               <img
                 className="h-10 w-auto"
                 src="/images/logo/logo-lassiri.png"
@@ -36,104 +85,90 @@ export default function Header({ onMobileMenuToggle }) {
               />
             </Link>
             <div className="hidden ml-10 space-x-8 lg:flex">
-              
-
-            <Link
+              {/* Lien Accueil */}
+              <Link
                 href={route('welcome')}
-                className={`text-base font-medium ${
-                  isActive('welcome') ? 'text-white' : 'text-gray-500'
-                } hover:text-white transition-colors`}
+                className={getLinkClasses(isActiveRoute('welcome'))}
               >
                 Accueil
               </Link>
 
-              {/* Solutions Menu */}
+              {/* Menu Solutions */}
               <div
-                className="relative group"
-                onMouseEnter={() => setOpenDropdown('solutions')}
-                onMouseLeave={() => setOpenDropdown(null)}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('solutions')}
+                onMouseLeave={handleMouseLeave}
               >
                 <Link
                   href={route('solutions.index')}
-                  className={`text-base font-medium ${
-                    isActive('solutions.index') ? 'text-white' : 'text-gray-500'
-                  } hover:text-white transition-colors`}
+                  className={getLinkClasses(isActiveRoute('solutions.*'))}
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === 'solutions'}
                 >
                   Solutions
                 </Link>
                 <div
-                  className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-50 ${
+                  className={`absolute left-0 mt-2 w-48 bg-gray-50 shadow-lg rounded-md py-2 z-50 ${
                     openDropdown === 'solutions' ? 'block' : 'hidden'
                   }`}
+                  role="menu"
+                  aria-label="Menu Solutions"
+                  onMouseEnter={() => handleMouseEnter('solutions')}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <Link
-                    href={route('solutions.paiements')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  >
-                    Paiements
-                  </Link>
-                  <Link
-                    href={route('solutions.transport.reservation')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  >
-                    Transport & Réservation
-                  </Link>
-                  <Link
-                    href={route('solutions.commande.livraison')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  >
-                    Commande & Livraison
-                  </Link>
+                  {solutionsLinks.map((link) => (
+                    <Link
+                      key={link.routeName}
+                      href={route(link.routeName)}
+                      className={getDropdownLinkClasses(isActiveRoute(link.routeName))}
+                      role="menuitem"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
 
-              {/* Partenariat Menu */}
+              {/* Menu Partenariat */}
               <div
-                className="relative group"
-                onMouseEnter={() => setOpenDropdown('partenariat')}
-                onMouseLeave={() => setOpenDropdown(null)}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('partenariat')}
+                onMouseLeave={handleMouseLeave}
               >
                 <Link
                   href={route('partenariat.index')}
-                  className={`text-base font-medium ${
-                    isActive('partenariat.index')
-                      ? 'text-white'
-                      : 'text-gray-200'
-                  } hover:text-white transition-colors`}
+                  className={getLinkClasses(isActiveRoute('partenariat.*'))}
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === 'partenariat'}
                 >
                   Partenariat
                 </Link>
                 <div
-                  className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-50 ${
+                  className={`absolute left-0 mt-2 w-48 bg-gray-50 shadow-lg rounded-md py-2 z-50 ${
                     openDropdown === 'partenariat' ? 'block' : 'hidden'
                   }`}
+                  role="menu"
+                  aria-label="Menu Partenariat"
+                  onMouseEnter={() => handleMouseEnter('partenariat')}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <Link
-                    href={route('partenariat.chauffeur')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  >
-                    Chauffeur
-                  </Link>
-                  <Link
-                    href={route('partenariat.livreur')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  >
-                    Livreur
-                  </Link>
-                  <Link
-                    href={route('partenariat.marchand.paiement')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  >
-                    Marchand
-                  </Link>
+                  {partenariatLinks.map((link) => (
+                    <Link
+                      key={link.routeName}
+                      href={route(link.routeName)}
+                      className={getDropdownLinkClasses(isActiveRoute(link.routeName))}
+                      role="menuitem"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
 
+              {/* Centre d'aide */}
               <Link
                 href={route('centre.aide')}
-                className={`text-base font-medium ${
-                  isActive('centre.aide') ? 'text-white' : 'text-gray-500'
-                } hover:text-white transition-colors`}
+                className={getLinkClasses(isActiveRoute('centre.aide'))}
               >
                 Centre d'aide
               </Link>
@@ -158,6 +193,8 @@ export default function Header({ onMobileMenuToggle }) {
               className="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-200 hover:text-white transition-colors"
               onClick={onMobileMenuToggle}
               aria-label="Ouvrir le menu"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               <Menu className="h-6 w-6" />
             </button>

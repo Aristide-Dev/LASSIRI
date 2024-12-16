@@ -9,7 +9,7 @@ export default function Copyright() {
       transition={{ duration: 0.6, delay: 0.4 }}
     >
       <p className="text-base text-gray-400 text-center">
-        &copy; {new Date().getFullYear()} Lassiri. Tous droits réservés.
+        &copy; {new Date().getFullYear()} <span className="font-bold text-blue-500">CGUITECH</span>. Tous droits réservés.
       </p>
       <p className="text-sm text-gray-400 text-center mt-2">
         Développé avec ❤️ pour améliorer votre business

@@ -7,13 +7,13 @@ export default function Hero() {
       className="relative bg-primary-50 overflow-hidden py-20 sm:py-32"
       aria-labelledby="hero-heading"
       style={{
-        backgroundImage: 'url(/images/backgrounds/hero-bg.jpg)', // Chemin de l'image d'arrière-plan
+        backgroundImage: 'url(/images/hero/solutionsHero.jpg)', // Chemin de l'image d'arrière-plan
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
       {/* Overlay pour améliorer la lisibilité du texte */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-700/50 via-primary-500/30 to-primary-500/10" />
+      {/* <div className="absolute inset-0 bg-gradient-to-r from-primary-700/50 via-primary-500/30 to-primary-500/10" /> */}
 
       {/* Contenu principal */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
@@ -38,7 +38,7 @@ export default function Hero() {
             }}
           >
             Des solutions innovantes pour
-            <span className="block text-secondary">votre croissance</span>
+            <span className="block text-primary-800">votre croissance</span>
           </motion.h1>
 
           {/* Texte descriptif */}
@@ -80,7 +80,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Illustration à droite */}
-        <motion.div
+        {/* <motion.div
           className="relative mt-10 lg:mt-0 lg:w-1/2"
           initial="hidden"
           animate="visible"
@@ -96,7 +96,7 @@ export default function Hero() {
             className="w-full max-w-lg mx-auto lg:mx-0"
             loading="lazy"
           />
-        </motion.div>
+        </motion.div> */}
       </div>
     </header>
   );

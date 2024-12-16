@@ -3,30 +3,40 @@ import AppLayout from '@/Layouts/AppLayout';
 import Hero from '@/Components/Solutions/Hero';
 import Features from '@/Components/Solutions/Features';
 import Solutions from '@/Components/Solutions/Solutions';
-import Pricing from '@/Components/Solutions/Pricing';
-import Testimonials from '@/Components/Solutions/Testimonials';
+// import Pricing from '@/Components/Solutions/Pricing';
+// import Testimonials from '@/Components/Solutions/Testimonials';
 import FAQ from '@/Components/Solutions/FAQ';
 import CallToAction from '@/Components/Solutions/CallToAction';
 import { motion } from 'framer-motion';
+
+// Variantes Framer Motion réutilisables pour les sections
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8 }
+  },
+};
 
 export default function SolutionsPage() {
   return (
     <AppLayout>
       {/* SEO Optimisation */}
       <Head>
-        <title>Nos Solutions | Lassiri</title>
+        <title>Nos Solutions</title>
         <meta
           name="description"
-          content="Découvrez nos solutions innovantes de transport, livraison et paiement pour optimiser votre business."
+          content="Découvrez nos solutions innovantes en matière de transport, de livraison et de paiement, conçues pour optimiser et développer votre entreprise."
         />
         <meta
           name="keywords"
-          content="transport, livraison, paiement, business, solutions, lassiri"
+          content="transport, livraison, paiement, business, solutions, lassiri, Guinée, Conakry"
         />
         <meta property="og:title" content="Nos Solutions | Lassiri" />
         <meta
           property="og:description"
-          content="Explorez des solutions innovantes pour simplifier vos opérations et améliorer vos services."
+          content="Explorez des solutions innovantes qui simplifient vos opérations et améliorent vos services en Guinée."
         />
         <meta
           property="og:image"
@@ -36,13 +46,14 @@ export default function SolutionsPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Main Content */}
-      <main>
+      <main className="overflow-hidden">
         {/* Hero Section */}
         <motion.section
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          as="header"
+          initial="hidden"
+          animate="visible"
+          variants={sectionVariants}
+          // Aucun délai ici pour que le Hero apparaisse rapidement
         >
           <Hero />
         </motion.section>
@@ -50,64 +61,108 @@ export default function SolutionsPage() {
         {/* Features Section */}
         <motion.section
           className="bg-gray-50"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+          transition={{ delay: 0.2 }}
+          aria-labelledby="features-title"
         >
-          <Features />
+          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <h2 id="features-title" className="sr-only">
+              Fonctionnalités principales
+            </h2>
+            <Features />
+          </div>
         </motion.section>
 
         {/* Solutions Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+          transition={{ delay: 0.4 }}
+          aria-labelledby="solutions-title"
         >
-          <Solutions />
+          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <h2 id="solutions-title" className="sr-only">
+              Nos Solutions Détaillées
+            </h2>
+            <Solutions />
+          </div>
         </motion.section>
 
-        {/* Pricing Section */}
-        {/* <motion.section
-          className="bg-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <Pricing />
-        </motion.section> */}
+        {/* Pricing Section (optionnel) */}
+        {false && (
+          <motion.section
+            className="bg-white"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+            transition={{ delay: 0.6 }}
+            aria-labelledby="pricing-title"
+          >
+            <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+              <h2 id="pricing-title" className="text-3xl font-extrabold text-gray-900">
+                Nos Tarifs
+              </h2>
+              <Pricing />
+            </div>
+          </motion.section>
+        )}
 
-        {/* Testimonials Section */}
-        {/* <motion.section
-          className="bg-gray-50"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <Testimonials />
-        </motion.section> */}
+        {/* Testimonials Section (optionnel) */}
+        {false && (
+          <motion.section
+            className="bg-gray-50"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+            transition={{ delay: 0.8 }}
+            aria-labelledby="testimonials-title"
+          >
+            <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+              <h2 id="testimonials-title" className="text-3xl font-extrabold text-gray-900">
+                Témoignages de nos Clients
+              </h2>
+              <Testimonials />
+            </div>
+          </motion.section>
+        )}
 
         {/* FAQ Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+          transition={{ delay: 1 }}
+          aria-labelledby="faq-title"
         >
-          <FAQ />
+          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <h2 id="faq-title" className="text-3xl font-extrabold text-gray-900">
+              Foire aux questions
+            </h2>
+            <FAQ />
+          </div>
         </motion.section>
 
         {/* Call To Action */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+          transition={{ delay: 1.2 }}
+          aria-labelledby="cta-title"
         >
-          <CallToAction />
+          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <h2 id="cta-title" className="sr-only">Appel à l’action</h2>
+            <CallToAction />
+          </div>
         </motion.section>
       </main>
     </AppLayout>

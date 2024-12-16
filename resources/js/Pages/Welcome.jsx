@@ -13,7 +13,7 @@ export default function Welcome() {
   return (
     <AppLayout>
       <Head>
-        <title>Bienvenue | Notre Plateforme</title>
+        <title>Bienvenue</title>
         <meta name="description" content="Plateforme de services de transport, livraison et paiement" />
       </Head>
 
@@ -21,7 +21,7 @@ export default function Welcome() {
         <Hero />
         <Features />
         <Services />
-        <Stats />
+        {/* <Stats /> */}
         <Testimonials />
         <News />
         <Partners />
