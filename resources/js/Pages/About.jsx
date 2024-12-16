@@ -13,7 +13,7 @@ export default function AboutUs() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-b from-[#00B14F] to-[#002E27] text-white py-24">
+        <section className="relative bg-gradient-to-b from-primary to-gray-800 text-white py-24">
           <div className="absolute inset-0 bg-grid-pattern opacity-5" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <motion.div

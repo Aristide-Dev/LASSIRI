@@ -74,16 +74,18 @@ export default function Header({ onMobileMenuToggle }) {
     { name: 'Paiements', routeName: 'solutions.paiements' },
     { name: 'Transport & Réservation', routeName: 'solutions.transport.reservation' },
     { name: 'Commande & Livraison', routeName: 'solutions.commande.livraison' },
+    { name: 'Transactions Financiere', routeName: 'solutions.transactions.finances' },
   ];
 
   const partenariatLinks = [
     { name: 'Chauffeur', routeName: 'partenariat.chauffeur' },
     { name: 'Livreur', routeName: 'partenariat.livreur' },
-    { name: 'Marchand', routeName: 'partenariat.marchand.paiement' },
+    { name: 'Marchand & Paiements', routeName: 'partenariat.marchand.paiement' },
+    { name: 'Marchand & Livraison', routeName: 'partenariat.marchand.livraison' },
   ];
 
   return (
-    <header className="fixed w-full top-0 z-20 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+    <header className="fixed w-full top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top Navigation">
         <div className="w-full py-6 flex items-center justify-between">
           {/* Logo Section */}
@@ -184,7 +186,7 @@ export default function Header({ onMobileMenuToggle }) {
                   aria-haspopup="true"
                   aria-expanded={openDropdown === 'partenariat'}
                 >
-                  Entreprises
+                  Partenariat
                 </Link>
                 <div
                   className={`absolute left-0 mt-2 w-48 bg-gray-50 shadow-lg rounded-md py-2 z-50 ${openDropdown === 'partenariat' ? 'block' : 'hidden'
@@ -235,137 +237,136 @@ export default function Header({ onMobileMenuToggle }) {
       </nav>
 
       {/* Modal de téléchargement */}
-      {/* Modal de téléchargement */}
-<AnimatePresence>
-  {isModalOpen && (
-    <motion.div
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center min-h-screen h-full"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <motion.div
-        className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4 relative mt-16"
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0, y: 20 }}
-      >
-        {/* Bouton fermeture */}
-        <motion.button
-          onClick={() => setModalOpen(false)}
-          className="absolute -top-4 -right-4 p-2 bg-white rounded-full shadow-lg hover:bg-red-50 transition-colors"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <X className="w-5 h-5 text-red-500" />
-        </motion.button>
-
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">Téléchargez Lassiri</h2>
-          <p className="mt-2 text-gray-600">Choisissez votre plateforme préférée</p>
-        </div>
-
-        <div className="space-y-4">
-          {/* Google Play */}
-          <motion.a
-            href={downloadLinks.android.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#00C853] to-[#69F0AE] hover:shadow-lg transition-all ${
-              os === 'android' ? 'ring-4 ring-[#00C853]/20' : ''
-            }`}
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <PlayCircle className="h-8 w-8 text-white mr-3" />
-                <div className="text-left">
-                  <p className="text-xs text-white/90">TÉLÉCHARGER SUR</p>
-                  <p className="text-lg font-semibold text-white">Google Play</p>
-                </div>
-              </div>
-              {os === 'android' && (
-                <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                  Recommandé
-                </span>
-              )}
-            </div>
-          </motion.a>
-
-          {/* App Store */}
-          <motion.a
-            href={downloadLinks.ios.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#000000] to-[#434343] hover:shadow-lg transition-all ${
-              os === 'ios' ? 'ring-4 ring-black/20' : ''
-            }`}
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Apple className="h-8 w-8 text-white mr-3" />
-                <div className="text-left">
-                  <p className="text-xs text-white/90">TÉLÉCHARGER SUR L'</p>
-                  <p className="text-lg font-semibold text-white">App Store</p>
-                </div>
-              </div>
-              {os === 'ios' && (
-                <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                  Recommandé
-                </span>
-              )}
-            </div>
-          </motion.a>
-
-          {/* AppGallery */}
-          <motion.a
-            href={downloadLinks.harmony.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#C10D31] to-[#FF1744] hover:shadow-lg transition-all ${
-              os === 'harmony' ? 'ring-4 ring-[#C10D31]/20' : ''
-            }`}
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Smartphone className="h-8 w-8 text-white mr-3" />
-                <div className="text-left">
-                  <p className="text-xs text-white/90">TÉLÉCHARGER SUR</p>
-                  <p className="text-lg font-semibold text-white">AppGallery</p>
-                </div>
-              </div>
-              {os === 'harmony' && (
-                <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                  Recommandé
-                </span>
-              )}
-            </div>
-          </motion.a>
-        </div>
-
-        {/* Badge OS détecté */}
-        {os !== 'unknown' && (
+      <AnimatePresence>
+        {isModalOpen && (
           <motion.div
-            className="mt-6 text-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center min-h-screen h-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 text-sm text-gray-700">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-              Système {os === 'android' ? 'Android' : os === 'ios' ? 'iOS' : 'Harmony OS'} détecté
-            </span>
+            <motion.div
+              className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4 relative mt-16"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            >
+              {/* Bouton fermeture */}
+              <motion.button
+                onClick={() => setModalOpen(false)}
+                className="absolute -top-4 -right-4 p-2 bg-white rounded-full shadow-lg hover:bg-red-50 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <X className="w-5 h-5 text-red-500" />
+              </motion.button>
+
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900">Téléchargez Lassiri</h2>
+                <p className="mt-2 text-gray-600">Choisissez votre plateforme préférée</p>
+              </div>
+
+              <div className="space-y-4">
+                {/* Google Play */}
+                <motion.a
+                  href={downloadLinks.android.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#00C853] to-[#69F0AE] hover:shadow-lg transition-all ${
+                    os === 'android' ? 'ring-4 ring-[#00C853]/20' : ''
+                  }`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <PlayCircle className="h-8 w-8 text-white mr-3" />
+                      <div className="text-left">
+                        <p className="text-xs text-white/90">TÉLÉCHARGER SUR</p>
+                        <p className="text-lg font-semibold text-white">Google Play</p>
+                      </div>
+                    </div>
+                    {os === 'android' && (
+                      <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
+                        Recommandé
+                      </span>
+                    )}
+                  </div>
+                </motion.a>
+
+                {/* App Store */}
+                <motion.a
+                  href={downloadLinks.ios.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#000000] to-[#434343] hover:shadow-lg transition-all ${
+                    os === 'ios' ? 'ring-4 ring-black/20' : ''
+                  }`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <Apple className="h-8 w-8 text-white mr-3" />
+                      <div className="text-left">
+                        <p className="text-xs text-white/90">TÉLÉCHARGER SUR L'</p>
+                        <p className="text-lg font-semibold text-white">App Store</p>
+                      </div>
+                    </div>
+                    {os === 'ios' && (
+                      <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
+                        Recommandé
+                      </span>
+                    )}
+                  </div>
+                </motion.a>
+
+                {/* AppGallery */}
+                <motion.a
+                  href={downloadLinks.harmony.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#C10D31] to-[#FF1744] hover:shadow-lg transition-all ${
+                    os === 'harmony' ? 'ring-4 ring-[#C10D31]/20' : ''
+                  }`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <Smartphone className="h-8 w-8 text-white mr-3" />
+                      <div className="text-left">
+                        <p className="text-xs text-white/90">TÉLÉCHARGER SUR</p>
+                        <p className="text-lg font-semibold text-white">AppGallery</p>
+                      </div>
+                    </div>
+                    {os === 'harmony' && (
+                      <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
+                        Recommandé
+                      </span>
+                    )}
+                  </div>
+                </motion.a>
+              </div>
+
+              {/* Badge OS détecté */}
+              {os !== 'unknown' && (
+                <motion.div
+                  className="mt-6 text-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <span className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 text-sm text-gray-700">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
+                    Système {os === 'android' ? 'Android' : os === 'ios' ? 'iOS' : 'Harmony OS'} détecté
+                  </span>
+                </motion.div>
+              )}
+            </motion.div>
           </motion.div>
         )}
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+      </AnimatePresence>
 
     </header>
   );
