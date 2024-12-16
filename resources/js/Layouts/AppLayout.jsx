@@ -17,7 +17,7 @@ export default function AppLayout({ children }) {
   };
 
   return (
-    <div className="min-h-screen bg-foreground flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Si vous souhaitez ajouter un titre ou des meta tags */}
       {/* <Head>
         <title>Mon Application</title>
@@ -28,7 +28,7 @@ export default function AppLayout({ children }) {
       
       <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
-      <main className="flex-grow">
+      <main className="flex-grow mt-20 pt-5 z-10">
         {children}
       </main>
 

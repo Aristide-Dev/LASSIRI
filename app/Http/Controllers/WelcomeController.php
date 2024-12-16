@@ -17,4 +17,14 @@ class WelcomeController extends Controller
     {
         return Inertia::render('HelpCenter');
     }
+
+    public function howToWork(): Response
+    {
+        return Inertia::render('HowToWork');
+    }
+
+    public function about(): Response
+    {
+        return Inertia::render('About');
+    }
 }

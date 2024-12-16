@@ -18,6 +18,8 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 
 // Centre d'aide
 Route::get('/centre-aide', [WelcomeController::class, 'helpCenter'])->name('centre.aide');
+Route::get('/comment-ca-marche', [WelcomeController::class, 'howToWork'])->name('comment.ca.marche');
+Route::get('/a-propos', [WelcomeController::class, 'about'])->name('a.propos');
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ Route::get('/centre-aide', [WelcomeController::class, 'helpCenter'])->name('cent
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('solutions')->name('solutions.')->group(function () {
+Route::prefix('services')->name('solutions.')->group(function () {
     // Page principale des solutions
     Route::get('/', [SolutionsController::class, 'index'])->name('index');
     

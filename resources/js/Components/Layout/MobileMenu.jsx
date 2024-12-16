@@ -107,7 +107,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                 onClick={() => toggleSubmenu('solutions')}
                 className={`${baseLinkClasses} ${isSolutionsActive ? activeClasses : inactiveClasses} w-full flex items-center justify-between focus:outline-none`}
               >
-                <span>Solutions</span>
+                <span>Services</span>
                 <ChevronDown
                   className={`h-5 w-5 transition-transform ${openSubmenu === 'solutions' ? 'rotate-180' : ''}`}
                 />
@@ -154,14 +154,22 @@ export default function MobileMenu({ isOpen, onClose }) {
               )}
             </div>
 
-            {/* Partenariat Section */}
+            {/* Comment ça marche ? */}
+            <Link
+              href={route('comment.ca.marche')}
+              className={`${baseLinkClasses} ${isActiveRoute('comment.ca.marche') ? activeClasses : inactiveClasses}`}
+            >
+              Comment ça marche ?
+            </Link>
+
+            {/* Partenariat / Entreprse Section */}
             <div>
               <button
                 type="button"
                 onClick={() => toggleSubmenu('partenariat')}
                 className={`${baseLinkClasses} ${isPartenariatActive ? activeClasses : inactiveClasses} w-full flex items-center justify-between focus:outline-none`}
               >
-                <span>Partenariat</span>
+                <span>Entreprises</span>
                 <ChevronDown
                   className={`h-5 w-5 transition-transform ${openSubmenu === 'partenariat' ? 'rotate-180' : ''}`}
                 />
@@ -201,6 +209,14 @@ export default function MobileMenu({ isOpen, onClose }) {
                 </div>
               )}
             </div>
+
+            {/* À propos de nous */}
+            <Link
+              href={route('a.propos')}
+              className={`${baseLinkClasses} ${isActiveRoute('a.propos') ? activeClasses : inactiveClasses}`}
+            >
+              À propos de nous
+            </Link>
 
             {/* Centre d'aide */}
             <Link
