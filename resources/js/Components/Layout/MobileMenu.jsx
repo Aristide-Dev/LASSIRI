@@ -1,8 +1,10 @@
 import { Link, usePage } from '@inertiajs/react';
 import { X, ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useCallback, useState } from 'react';
+import { mainMenuItems } from './MenuItems';
 
-export default function MobileMenu({ isOpen, onClose }) {
+
+export default function MobileMenu({ isOpen, onClose, setContactOpen, setDownloadOpen }) {
   const { url } = usePage(); // pour extraire l'URL ou bien route().current() en direct si Ziggy est dispo
   const closeButtonRef = useRef(null);
   const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -92,139 +94,87 @@ export default function MobileMenu({ isOpen, onClose }) {
 
         {/* Conteneur scrollable */}
         <div className="flex-1 overflow-y-auto h-full pb-4">
-          <nav className="px-2 space-y-1">
-            <Link
-              href={route('welcome')}
-              className={`${baseLinkClasses} ${isActiveRoute('welcome') ? activeClasses : inactiveClasses}`}
-            >
-              Accueil
-            </Link>
+        <nav className="px-2 space-y-1">
+            {mainMenuItems.map(item => {
+              const active = item.routeName ? isActiveRoute(item.routeName) : false;
 
-            {/* Solutions Section */}
-            <div>
-              <button
-                type="button"
-                onClick={() => toggleSubmenu('solutions')}
-                className={`${baseLinkClasses} ${isSolutionsActive ? activeClasses : inactiveClasses} w-full flex items-center justify-between focus:outline-none`}
-              >
-                <span>Services</span>
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform ${openSubmenu === 'solutions' ? 'rotate-180' : ''}`}
-                />
-              </button>
-              {openSubmenu === 'solutions' && (
-                <div className="ml-6 mt-1 space-y-1">
-                  <Link
-                    href={route('solutions.index')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('solutions.index') ? activeClasses : inactiveClasses}`}
-                  >
-                    Aperçu
-                  </Link>
-                  <Link
-                    href="#"
-                    className={`${baseSubLinkClasses} ${route().current('some.financial.route') ? activeClasses : inactiveClasses}`}
-                  >
-                    Transactions Financières
-                  </Link>
-                  <Link
-                    href={route('solutions.paiements')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('solutions.paiements') ? activeClasses : inactiveClasses}`}
-                  >
-                    Paiement
-                  </Link>
-                  <Link
-                    href={route('solutions.transport.reservation')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('solutions.transport.reservation') ? activeClasses : inactiveClasses}`}
-                  >
-                    Transport & Réservation
-                  </Link>
-                  <Link
-                    href={route('solutions.commande.livraison')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('solutions.commande.livraison') ? activeClasses : inactiveClasses}`}
-                  >
-                    Commande & Livraison
-                  </Link>
-                  <Link
-                    href="#"
-                    className={`${baseSubLinkClasses} ${route().current('some.colis.route') ? activeClasses : inactiveClasses}`}
-                  >
-                    Colis & Courriers
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Comment ça marche ? */}
-            <Link
-              href={route('comment.ca.marche')}
-              className={`${baseLinkClasses} ${isActiveRoute('comment.ca.marche') ? activeClasses : inactiveClasses}`}
-            >
-              Comment ça marche ?
-            </Link>
-
-            {/* Partenariat / Entreprse Section */}
-            <div>
-              <button
-                type="button"
-                onClick={() => toggleSubmenu('partenariat')}
-                className={`${baseLinkClasses} ${isPartenariatActive ? activeClasses : inactiveClasses} w-full flex items-center justify-between focus:outline-none`}
-              >
-                <span>Entreprises</span>
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform ${openSubmenu === 'partenariat' ? 'rotate-180' : ''}`}
-                />
-              </button>
-              {openSubmenu === 'partenariat' && (
-                <div className="ml-6 mt-1 space-y-1">
-                  <Link
-                    href={route('partenariat.index')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('partenariat.index') ? activeClasses : inactiveClasses}`}
-                  >
-                    Aperçu
-                  </Link>
-                  <Link
-                    href={route('partenariat.chauffeur')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('partenariat.chauffeur') ? activeClasses : inactiveClasses}`}
-                  >
-                    Chauffeur
-                  </Link>
-                  <Link
-                    href={route('partenariat.livreur')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('partenariat.livreur') ? activeClasses : inactiveClasses}`}
-                  >
-                    Livreur
-                  </Link>
-                  <Link
-                    href={route('partenariat.marchand.paiement')}
-                    className={`${baseSubLinkClasses} ${isActiveRoute('partenariat.marchand.paiement') ? activeClasses : inactiveClasses}`}
-                  >
-                    Marchand - Paiement
-                  </Link>
-                  <Link
-                    href="#"
-                    className={`${baseSubLinkClasses} ${route().current('some.marchand.livraison.route') ? activeClasses : inactiveClasses}`}
-                  >
-                    Marchand - Livraison
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* À propos de nous */}
-            <Link
-              href={route('a.propos')}
-              className={`${baseLinkClasses} ${isActiveRoute('a.propos') ? activeClasses : inactiveClasses}`}
-            >
-              À propos de nous
-            </Link>
-
-            {/* Centre d'aide */}
-            <Link
-              href={route('centre.aide')}
-              className={`${baseLinkClasses} ${isActiveRoute('centre.aide') ? activeClasses : inactiveClasses}`}
-            >
-              Centre d'aide
-            </Link>
+              if (item.submenu) {
+                // Afficher sous-menu
+                return (
+                  <div key={item.key}>
+                    <button
+                      type="button"
+                      onClick={() => toggleSubmenu(item.key)}
+                      className={`${baseLinkClasses} ${active ? activeClasses : inactiveClasses} w-full flex items-center justify-between focus:outline-none`}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown className={`h-5 w-5 transition-transform ${openSubmenu === item.key ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openSubmenu === item.key && (
+                      <div className="ml-6 mt-1 space-y-1">
+                        {item.submenu.map(subItem => {
+                          const subActive = subItem.routeName ? isActiveRoute(subItem.routeName) : false;
+                          if (subItem.type === 'link') {
+                            return (
+                              <Link
+                                key={subItem.routeName || subItem.name}
+                                href={route(subItem.routeName)}
+                                className={`${baseSubLinkClasses} ${subActive ? activeClasses : inactiveClasses}`}
+                              >
+                                {subItem.name}
+                              </Link>
+                            );
+                          } else if (subItem.type === 'action') {
+                            return (
+                              <button
+                                key={subItem.name}
+                                onClick={() => {
+                                  if (subItem.actionKey === 'openOffcanvasLivraison') {
+                                    setOffcanvasLivraisonOpen(true);
+                                    onClose();
+                                  }
+                                }}
+                                className={`${baseSubLinkClasses} ${inactiveClasses} text-left w-full`}
+                              >
+                                {subItem.name}
+                              </button>
+                            );
+                          }
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              } else {
+                // Pas de sous-menu
+                if (item.type === 'link') {
+                  return (
+                    <Link
+                      key={item.routeName || item.label}
+                      href={route(item.routeName)}
+                      className={`${baseLinkClasses} ${active ? activeClasses : inactiveClasses}`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                } else if (item.type === 'action') {
+                  return (
+                    <button
+                      key={item.label}
+                      onClick={() => {
+                        if (item.actionKey === 'openContact') {
+                          setContactOpen(true);
+                          onClose();
+                        }
+                      }}
+                      className={`${baseLinkClasses} ${inactiveClasses} text-left w-full`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                }
+              }
+            })}
           </nav>
         </div>
 

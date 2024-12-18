@@ -11,15 +11,15 @@ export default function CompanyInfo() {
       }}
       transition={{ duration: 0.6 }}
     >
-    <div className="flex gap-0">
+    <div className="flex gap-0 items-center">
     <img
-      className="h-10"
+      className="h-8"
       src="/images/logo/brandingGn.png"
       alt="Logo Lassiri"
       loading="lazy"
     />
     <img
-      className="h-10"
+      className="h-16"
       src="/images/logo/logo-lassiri.png"
       alt="Logo Lassiri"
       loading="lazy"
