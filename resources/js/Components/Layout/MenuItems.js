@@ -1,42 +1,61 @@
 // menuItems.js
+import { 
+  Home,
+  Newspaper,
+  Building2,
+  FileText,
+  Link,
+  Mail,
+  MessageSquare,
+  Image,
+  Users,
+  Briefcase,
+  PieChart,
+  Boxes,
+  Coins,
+  Binary,
+  FileBarChart
+} from 'lucide-react';
 
-export const solutionsLinks = [
-    { name: 'Paiements', routeName: 'solutions.paiements', type: 'link' },
-    { name: 'Transport & Réservation', routeName: 'solutions.transport.reservation', type: 'link' },
-    { name: 'Commande & Livraison', routeName: 'solutions.commande.livraison', type: 'link' },
-    { name: 'Transactions Financière', routeName: 'solutions.transactions.finances', type: 'link' },
-  ];
-  
-  // Exemple : un bouton pour déclencher un modal (par exemple pour payer)
-  export const partenariatLinks = [
-    { name: 'Chauffeur', routeName: 'partenariat.chauffeur', type: 'link' },
-    { name: 'Livreur', routeName: 'partenariat.livreur', type: 'link' },
-    { name: 'Marchand & Paiements', routeName: 'partenariat.marchand.paiement', type: 'link' },
-    // { name: 'Marchand & Livraison', routeName: 'partenariat.marchand.livraison', type: 'link' },
-    // Supposons que celui-ci ouvre un offcanvas au lieu d'un lien
-    { name: 'Marchand & Livraison', routeName: null, type: 'action', actionKey: 'openOffcanvasLivraison' },
-  ];
-  
-  export const mainMenuItems = [
-    { label: 'Accueil', routeName: 'welcome', type: 'link' },
-    {
-      label: 'Nos Services',
-      routeName: 'solutions.index',
-      submenu: solutionsLinks,
-      key: 'solutions',
-      type: 'link',
-    },
-    { label: 'Comment ça marche ?', routeName: 'comment.ca.marche', type: 'link' },
-    {
-      label: 'Partenariat',
-      routeName: 'partenariat.index',
-      submenu: partenariatLinks,
-      key: 'partenariat',
-      type: 'link',
-    },
-    { label: 'À propos de nous', routeName: 'a.propos', type: 'link' },
-    // Un bouton pour ouvrir l'offcanvas Contact
-    { label: 'Contact', routeName: null, type: 'action', actionKey: 'openContact' },
-    { label: 'Centre d\'aide', routeName: 'centre.aide', type: 'link' },
-  ];
+export const menuItems = [
+  {
+    label: 'Accueil',
+    href: 'welcome', // route('welcome')
+    icon: Home,
+  },
+  {
+    label: 'Nos Solutions',
+    icon: Briefcase,
+    actif: 'solutions.*', // route('apropos.index')
+    children: [
+      { label: 'Paiements', href: 'solutions.paiements', icon: FileText },
+      { label: 'Transport & Réservation', href: 'solutions.transport.reservation', icon: Users },
+      { label: 'Commande & Livraison', href: 'solutions.commande.livraison', icon: Briefcase },
+      { label: 'Transactions Financière', href: 'solutions.transactions.finances', icon: MessageSquare },
+    ]
+  },
+  {
+    label: 'Comment ça marche ?',
+    icon: Building2,
+    actif: 'partenariat.*',
+    children: [
+      { label: 'Chauffeur', href: 'partenariat.chauffeur', icon: Building2 },
+      { label: 'Livreur', href: 'partenariat.livreur', icon: PieChart },
+      { label: 'Marchand & Paiements', href: 'partenariat.marchand.paiement', icon: Boxes },
+      { label: 'Marchand & Livraison', href: 'partenariat.marchand.livraison', icon: Coins },
+    ]
+  },
+  {
+    label: 'À propos',
+    icon: Link,
+    href: 'a.propos',
+  },
+  {
+    label: 'Contact',
+    icon: Mail,
+    href: null,
+    type: 'action',
+    actionKey: 'openContact',
+  },
+];
   
