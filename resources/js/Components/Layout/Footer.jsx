@@ -24,7 +24,8 @@ const footerSections = [
     title: 'Support',
     links: [
       { label: 'Centre d\'aide', href: route('centre.aide') },
-      { label: 'Contact', href: '#' },
+      { label: 'Contact', href: null, type: 'action', actionKey: 'openContact'},
+      { label: 'Telechargement', href: null, type: 'action', actionKey: 'openDownload'},
     ],
   },
   {
@@ -36,9 +37,9 @@ const footerSections = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ setContactOpen, setDownloadOpen }) {
   return (
-    <footer className="bg-white border-t border-gray-200" aria-label="Pied de page">
+    <footer className="bg-gradient-to-r from-primary to-gray-800 border-t border-gray-200 shadow-lg" aria-label="Pied de page">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <motion.div
           className="xl:grid xl:grid-cols-3 xl:gap-8"

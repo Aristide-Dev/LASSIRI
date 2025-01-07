@@ -25,7 +25,7 @@ export default function CompanyInfo() {
       loading="lazy"
     />
     </div>
-      <p className="text-gray-500 text-base max-w-md">
+      <p className="text-gray-50 text-base max-w-md">
         Solutions innovantes pour votre business : transport, livraison, et paiement.
         Simplifiez vos opérations avec notre plateforme tout-en-un.
       </p>

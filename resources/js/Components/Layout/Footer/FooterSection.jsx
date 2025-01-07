@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/react';
 export default function FooterSection({ title, links }) {
   return (
     <div>
-      <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+      <h3 className="text-sm font-bold text-white tracking-wider uppercase">
         {title}
       </h3>
       <motion.ul
@@ -24,7 +24,7 @@ export default function FooterSection({ title, links }) {
           >
             <Link
               href={link.href}
-              className="text-base text-gray-500 hover:text-primary transition-colors duration-200"
+              className="text-base text-gray-300 hover:text-primary-200 transition-colors duration-200"
             >
               {link.label}
             </Link>

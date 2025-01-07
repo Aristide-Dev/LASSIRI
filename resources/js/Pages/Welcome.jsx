@@ -24,8 +24,8 @@ export default function Welcome() {
         {/* <Stats /> */}
         <Testimonials />
         <News />
-        <Partners />
         <CallToAction />
+        <Partners />
       </main>
     </AppLayout>
   );
