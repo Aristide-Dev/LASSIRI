@@ -10,7 +10,7 @@ import {
 
 const slides = [
   {
-    image: 'https://img.freepik.com/free-photo/portrait-senior-man-with-camera-device-world-photography-day-celebration_23-2151657238.jpg?t=st=1736254459~exp=1736258059~hmac=7bd2c5f7c082b8d137f25b11eb61a0878428d8fcf980ca378573423128ca6832&w=1380',
+    image: '/images/slides/portrait-senior-man-with-camera-device-world-photography-day-celebration.jpg',
     title: 'Services de Paiement',
     description: 'Payez vos factures, faites vos achats ou envoyez de l’argent en toute sécurité avec Lassiri.',
     buttons: [
