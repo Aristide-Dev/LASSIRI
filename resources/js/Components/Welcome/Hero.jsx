@@ -27,7 +27,7 @@ const slides = [
     ],
   },
   {
-    image: 'https://img.freepik.com/free-photo/portrait-beautiful-smiling-woman-city_1157-38037.jpg?t=st=1736258731~exp=1736262331~hmac=ae2929ac92fa0aa0d2c30744b89398ab815846ff8053d7e1ea0af9f7fe2bb182&w=1380',
+    image: '/images/slides/portrait-beautiful-smiling-woman-city.jpg',
     title: 'Commande & Livraison',
     description: 'Commandez vos repas préférés et recevez-les rapidement à domicile ou au bureau.',
     buttons: [
@@ -35,7 +35,7 @@ const slides = [
     ],
   },
   {
-    image: 'https://img.freepik.com/free-photo/couple-enjoying-food-restaurant_23-2149269157.jpg?t=st=1736259020~exp=1736262620~hmac=38ca201ca261be93acb6f173331746336bfa89c44b168d1451aea226066d03b0&w=1380',
+    image: '/images/slides/couple-enjoying-food-restaurant.jpg',
     title: 'Groupe d’amis qui payent ensemble',
     description: 'Partagez la note au restaurant ou faites des virements groupés en un seul geste.',
     buttons: [
@@ -43,7 +43,7 @@ const slides = [
     ],
   },
   {
-    image: 'https://img.freepik.com/free-photo/people-traveling-back-crammed-vehicle-down-road-india_1353-225.jpg?t=st=1736259091~exp=1736262691~hmac=14bc393b4b7fa5436285265b31541b25dae8862cd4695505427cbfdd8a308f81&w=1380',
+    image: '/images/slides/people-traveling-back-crammed-vehicle-down-road-india.jpg',
     title: 'Business local ou marchand',
     description: 'Développez votre entreprise grâce à des solutions de paiement et de livraison adaptées.',
     buttons: [
@@ -52,7 +52,7 @@ const slides = [
     ],
   },
   {
-    image: 'https://img.freepik.com/free-photo/shallow-focus-woman-with-facemask-holding-pos-machine-market_181624-39373.jpg?t=st=1736259181~exp=1736262781~hmac=fcde17ee37b775017d761ccd640453e1012bcab79e175e7c447be0b7934f0bd3&w=1380',
+    image: '/images/slides/shallow-focus-woman-with-facemask-holding-pos-machine-market.jpg',
     title: 'Digitalisation & Traçabilité',
     description: 'Améliorez la gouvernance et le suivi des transactions grâce à des outils modernes.',
     buttons: [
@@ -60,7 +60,7 @@ const slides = [
     ],
   },
   {
-    image: 'https://img.freepik.com/premium-photo/idea-exchange-station_1029476-78237.jpg?w=1380',
+    image: '/images/slides/idea-exchange-station.jpg',
     title: 'Support 24/7 et communauté',
     description: 'Rejoignez la communauté Lassiri. Profitez d’un support réactif et de nombreux avantages.',
     buttons: [
