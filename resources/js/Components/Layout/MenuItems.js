@@ -51,7 +51,7 @@ export const menuItems = [
     ],
   },
   {
-    label: 'Comment ça marche ?',
+    label: 'Partenariats',
     icon: Building2,
     actif: 'partenariat.*',
     children: [
