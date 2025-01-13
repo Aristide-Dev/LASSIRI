@@ -3,36 +3,43 @@ import { Truck, CreditCard, Clock, Shield, Globe, ChartBar } from 'lucide-react'
 
 const _features = [
   {
-    name: 'Transport optimisé',
-    description: 'Gérez efficacement vos flottes et optimisez vos itinéraires en temps réel.',
-    icon: Truck,
-    color: 'text-blue-500',
-    link: '#transport',
-  },
-  {
-    name: 'Paiements sécurisés',
-    description: 'Transactions sécurisées et multiples options de paiement pour vos clients.',
+    name: 'Transactions Financières',
+    description: 'Transférez et recevez de l’argent en toute sécurité.',
     icon: CreditCard,
     color: 'text-green-500',
     link: '#paiements',
   },
   {
-    name: 'Service 24/7',
-    description: 'Support client disponible en continu pour répondre à vos besoins.',
+    name: 'Transport & Réservation ',
+    description: 'Réservez un taxi, moto-taxi, tricycle en quelques clics.',
+    icon: Truck,
+    color: 'text-blue-500',
+    link: '#transport',
+  },
+  {
+    name: 'Solutions de Paiements',
+    description: 'Payez vos factures et faites vos achats facilement.',
+    icon: CreditCard,
+    color: 'text-green-500',
+    link: '#paiements',
+  },
+  {
+    name: 'Commandes & Livraison',
+    description: 'Commandez vos repas et produits préférés et recevez-les à domicile.',
     icon: Clock,
     color: 'text-purple-500',
     link: '#support',
   },
   {
-    name: 'Protection garantie',
-    description: 'Sécurité maximale pour vos données et transactions.',
+    name: 'Colis & Courriers',
+    description: 'Envoyez et recevez des colis en toute confiance.',
     icon: Shield,
     color: 'text-red-500',
     link: '#securite',
   },
   {
-    name: 'Couverture globale',
-    description: 'Service disponible dans toutes les grandes villes.',
+    name: 'Autres Services Premium',
+    description: 'Accédez à des services exclusifs adaptés à vos besoins.',
     icon: Globe,
     color: 'text-indigo-500',
     link: '#global',
@@ -106,7 +113,7 @@ export default function Features() {
 
         {/* Grille des fonctionnalités */}
         <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
+          {_features.map((feature, index) => (
             <motion.div
               key={feature.name}
               className="relative bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
