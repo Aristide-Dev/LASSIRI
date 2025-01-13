@@ -5,7 +5,7 @@ export const Logo = () => (
     <img 
       src="/images/logo/logo-lassiri.png"
       alt="Logo LASSIRI" 
-      className="h-20 w-auto"
+      className="h-16 w-auto"
     />
   </div>
 );

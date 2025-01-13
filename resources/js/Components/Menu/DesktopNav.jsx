@@ -101,10 +101,10 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
 
     // Classes de base
     const baseClasses =
-      'flex items-center px-2 py-1 rounded-md transition-colors text-md font-medium';
+      'flex items-center px-2 py-2 rounded-md transition-colors text-md font-medium';
     // Si le parent ou l'item est actif, on l'affiche différemment
     const activeClasses = (isActive || isDropdownActive)
-      ? 'bg-primary-800 text-white'
+      ? 'bg-primary-300 text-black'
       : 'text-primary-100 hover:bg-primary-700';
 
     // === Item sans sous-menu ===

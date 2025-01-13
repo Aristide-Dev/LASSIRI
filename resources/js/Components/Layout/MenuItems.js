@@ -5,11 +5,15 @@ import {
   Package,
   DollarSign,
   Users,
+  Search,
   Truck,
   Building2,
   PhoneCall,
   Info,
   Download,
+  Bike,
+  Car,
+  BadgeHelp,
 } from 'lucide-react';
 
 export const menuItems = [
@@ -24,6 +28,18 @@ export const menuItems = [
     // On veut activer ce menu si route().current('solutions.*')
     actif: 'solutions.*',
     children: [
+      {
+        label: 'Découvrir',
+        href: 'solutions.index',
+        icon: Search,
+        description: 'Découvrez nos differentes solutions',
+      },
+      {
+        label: 'Transactions Financière',
+        href: 'solutions.transactions.finances',
+        icon: ClipboardList,
+        description: 'Analysez et suivez l’historique de vos échanges financiers.',
+      },
       {
         label: 'Paiements',
         href: 'solutions.paiements',
@@ -43,8 +59,8 @@ export const menuItems = [
         description: 'Recevez vos commandes rapidement et en toute sécurité.',
       },
       {
-        label: 'Transactions Financière',
-        href: 'solutions.transactions.finances',
+        label: 'Colis & Courriers',
+        href: 'solutions.colis.courriers',
         icon: ClipboardList,
         description: 'Analysez et suivez l’historique de vos échanges financiers.',
       },
@@ -56,9 +72,21 @@ export const menuItems = [
     actif: 'partenariat.*',
     children: [
       {
+        label: 'Découvrir',
+        href: 'partenariat.index',
+        icon: Search,
+        description: 'Découvrez nos differentes formes de partenariat.',
+      },
+      {
         label: 'Chauffeur',
         href: 'partenariat.chauffeur',
-        icon: Users,
+        icon: Car,
+        description: 'Partenariat pour conducteurs / livreurs indépendants.',
+      },
+      {
+        label: 'Livreur',
+        href: 'partenariat.livreur',
+        icon: Bike,
         description: 'Partenariat pour conducteurs / livreurs indépendants.',
       },
       {
@@ -76,24 +104,29 @@ export const menuItems = [
     ],
   },
   {
+    label: "Centre d’Aide",
+    icon: BadgeHelp,
+    href: 'centre.aide', // => route('a.propos')
+  },
+  {
     label: 'À propos',
     icon: Info,
     href: 'a.propos', // => route('a.propos')
   },
-  {
-    label: 'Telechargement',
-    icon: Download,
-    // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
-    href: null,
-    type: 'action',
-    actionKey: 'openDownload',
-  },
-  {
-    label: 'Contact',
-    icon: PhoneCall,
-    // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
-    href: null,
-    type: 'action',
-    actionKey: 'openContact',
-  },
+  // {
+  //   label: 'Telechargement',
+  //   icon: Download,
+  //   // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
+  //   href: null,
+  //   type: 'action',
+  //   actionKey: 'openDownload',
+  // },
+  // {
+  //   label: 'Contact',
+  //   icon: PhoneCall,
+  //   // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
+  //   href: null,
+  //   type: 'action',
+  //   actionKey: 'openContact',
+  // },
 ];

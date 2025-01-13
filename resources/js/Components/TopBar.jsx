@@ -4,7 +4,7 @@ import { Link, usePage } from '@inertiajs/react';
 
 
 export const TopBar = ({setContactOpen, setDownloadOpen}) => (
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top Navigation">
+  <div className="w-full mx-auto px-2 sm:px-6 lg:px-8 bg-white" aria-label="Top Navigation">
         <div className="w-full py-6 flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center">
@@ -32,7 +32,7 @@ export const TopBar = ({setContactOpen, setDownloadOpen}) => (
             {/* Bouton pour ouvrir l'offcanvas de contact */}
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center px-4 py-2 rounded-lg font-medium text-white hover:text-primary border border-gray-200"
+              className="inline-flex items-center px-4 py-2 rounded-lg font-medium text-primary hover:bg-primary hover:text-white border border-gray-200"
               aria-label="Informations de contact"
             >
               Contact

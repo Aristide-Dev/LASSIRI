@@ -27,7 +27,7 @@ Route::get('/a-propos', [WelcomeController::class, 'about'])->name('a.propos');
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('services')->name('solutions.')->group(function () {
+Route::prefix('solutions')->name('solutions.')->group(function () {
     // Page principale des solutions
     Route::get('/', [SolutionsController::class, 'index'])->name('index');
     

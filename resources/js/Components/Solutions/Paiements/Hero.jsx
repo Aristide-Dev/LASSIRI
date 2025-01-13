@@ -3,7 +3,7 @@ import { CreditCard, Shield, Zap } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary to-gray-800 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary to-primary-800 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center"
