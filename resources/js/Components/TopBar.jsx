@@ -4,10 +4,10 @@ import { Link, usePage } from '@inertiajs/react';
 
 
 export const TopBar = ({setContactOpen, setDownloadOpen}) => (
-  <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 bg-white" aria-label="Top Navigation">
-        <div className="w-full py-3 flex items-center justify-between">
+  <div className="w-full mx-auto px-2 sm:px-6 lg:px-8 bg-white" aria-label="Top Navigation">
+        <div className="w-full py-1 flex items-center justify-end">
           {/* Logo Section */}
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <Link href="/" aria-label="Retour à l'accueil" className="flex flex-row gap-0">
               <img
                 className="h-8 w-auto"
@@ -16,7 +16,7 @@ export const TopBar = ({setContactOpen, setDownloadOpen}) => (
                 loading="lazy"
               />
             </Link>
-          </div>
+          </div> */}
 
           {/* Bouton Télécharger & Contact */}
           <div className="flex ml-10 space-x-4">
