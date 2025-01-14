@@ -105,7 +105,7 @@ export default function HeroLassiri() {
     <section className="relative overflow-hidden">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative h-[50vh] min-h-[500px]">
+          <div key={index} className="relative h-[50vh] min-h-[650px]">
             {/* Image de fond */}
             <div className="absolute inset-0">
               <img

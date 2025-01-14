@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { menuItems } from '../Layout/MenuItems';
 import { usePage } from '@inertiajs/react';
@@ -6,17 +6,16 @@ import { usePage } from '@inertiajs/react';
 export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
   const { url } = usePage();
 
-  // Vérifie si la route actuelle correspond à routeName
+  // État pour afficher ou masquer le mega-menu
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+
+  // Vérifie si la route courante correspond à la route
   const isActiveRoute = (routeName) => route().current(routeName);
 
-  /**
-   * Rendu d'un sous-item de menu (children).
-   * Peut être un lien normal ou un item d'action (type: 'action').
-   */
+  // Sous-items (child)
   const renderSubMenuItem = (child) => {
     const isChildActive = child.href && isActiveRoute(child.href);
 
-    // === Sous-item type action ===
     if (child.type === 'action') {
       return (
         <button
@@ -29,156 +28,108 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
               setDownloadOpen?.(true);
             }
           }}
-          className="px-4 py-2 hover:bg-primary-200 rounded-md transition-colors text-left w-full"
+          className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
         >
-          <div className="flex items-center mb-1 text-primary-600 font-medium hover:text-primary-800">
-            {child.icon && (
-              <child.icon className="w-5 h-5 mr-2 text-primary-400 hover:text-primary-600" />
-            )}
-            {child.label}
-          </div>
-          <p className="text-sm text-gray-600 ml-7 leading-snug">
-            {child.description || `Accédez à ${child.label}.`}
-          </p>
+          {child.label}
         </button>
       );
     }
 
-    // === Sous-item lien normal ===
     return (
-      <div
+      <a
         key={child.label}
-        className={`px-4 py-2 rounded-md transition-colors ${
-          isChildActive
-            ? 'bg-primary-600 text-white'
-            : 'hover:bg-gray-200'
+        href={child.href ? route(child.href) : '#'}
+        className={`block px-4 py-2 text-sm hover:bg-gray-100 ${
+          isChildActive ? 'font-semibold text-primary-700' : 'text-gray-800'
         }`}
       >
-        <a
-          href={
-            child.href && child.href !== '#' ? route(child.href) : '#'
-          }
-          className={`block font-medium ${
-            isChildActive
-              ? 'text-white'
-              : 'text-primary-600 hover:text-primary-800'
-          }`}
-        >
-          <div className="flex items-center mb-1">
-            {child.icon && (
-              <child.icon
-                className={`w-5 h-5 mr-2 ${
-                  isChildActive
-                    ? 'text-primary-200'
-                    : 'text-black'
-                }`}
-              />
-            )}
-            <span>{child.label}</span>
+        {child.label}
+      </a>
+    );
+  };
+
+  // Items (parent)
+  const renderMenuItem = (item) => {
+    const isActive = item.href && isActiveRoute(item.href);
+    const isDropdownActive =
+      (item.actif && isActiveRoute(item.actif)) ||
+      item.children?.some((child) => child.href && isActiveRoute(child.href));
+
+    return (
+      <div key={item.label} className="px-4 py-2">
+        {!item.children ? (
+          item.type === 'action' ? (
+            <button
+              onClick={() => {
+                if (item.actionKey === 'openContact') setContactOpen?.(true);
+                if (item.actionKey === 'openDownload') setDownloadOpen?.(true);
+              }}
+              className="text-sm hover:underline"
+            >
+              {item.label}
+            </button>
+          ) : (
+            <a
+              href={item.href ? route(item.href) : '#'}
+              className={`text-sm hover:underline ${
+                isActive || isDropdownActive ? 'font-semibold text-primary-700' : 'text-gray-800'
+              }`}
+            >
+              {item.label}
+            </a>
+          )
+        ) : (
+          // Parent ayant des children
+          <div>
+            <div className={`text-sm hover:underline ${isDropdownActive ? 'font-semibold text-primary-700' : 'text-gray-800'}`}>
+              {item.label}
+            </div>
           </div>
-          <p
-            className={`text-sm ml-7 leading-snug ${
-              isChildActive ? 'text-gray-100' : 'text-black'
-            }`}
-          >
-            {child.description || `Accédez à ${child.label}.`}
-          </p>
-        </a>
+        )}
       </div>
     );
   };
 
-  /**
-   * Rendu d'un item de menu principal (celui dans menuItems).
-   */
-  const renderMenuItem = (item) => {
-    const isActive = item.href && item.href !== '#' && isActiveRoute(item.href);
-    // On active le parent si item.actif match la route,
-    // ou si un de ses enfants est actif
-    const isDropdownActive =
-      (item.actif && isActiveRoute(item.actif)) ||
-      (item.children?.some((child) => child.href && isActiveRoute(child.href)));
-
-    // Classes de base
-    const baseClasses =
-      'flex items-center px-2 py-2 rounded-md transition-colors text-md font-medium';
-    // Si le parent ou l'item est actif, on l'affiche différemment
-    const activeClasses = (isActive || isDropdownActive)
-      ? 'bg-primary-300 text-black'
-      : 'text-primary-100 hover:bg-primary-700';
-
-    // === Item sans sous-menu ===
-    if (!item.children) {
-      if (item.type === 'action') {
-        return (
-          <button
-            onClick={() => {
-              if (item.actionKey === 'openContact') {
-                setContactOpen?.(true);
-              }
-              if (item.actionKey === 'openDownload') {
-                setDownloadOpen?.(true);
-              }
-            }}
-            className={`${baseClasses} ${activeClasses}`}
-          >
-            {item.icon && (
-              <item.icon className="w-4 h-4 mr-2 text-inherit" />
-            )}
-            <span>{item.label}</span>
-          </button>
-        );
-      }
-
-      // === Item lien normal ===
-      return (
-        <a
-          href={item.href && item.href !== '#' ? route(item.href) : '#'}
-          className={`${baseClasses} ${activeClasses}`}
-        >
-          {item.icon && <item.icon className="w-4 h-4 mr-2" />}
-          <span>{item.label}</span>
-        </a>
-      );
-    }
-
-    // === Item avec sous-menu ===
-    return (
-      <>
-        {/* Bouton parent */}
-        <button
-          type="button"
-          className={`${baseClasses} ${activeClasses}`}
-        >
-          {item.icon && (
-            <item.icon className="w-4 h-4 mr-2 text-inherit" />
-          )}
-          <span>{item.label}</span>
-          <ChevronDown className="w-3 h-3 ml-1" />
-        </button>
-
-        {/* Mega-menu container au survol */}
-        <div
-          className={`
-            absolute left-0 top-full hidden group-hover:grid grid-cols-2 gap-4 min-w-[480px] z-50 
-            bg-white border border-primary-200 rounded-md shadow-lg py-4
-            opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 
-            transition-all duration-200 ease-out
-          `}
-        >
-          {item.children.map((child) => renderSubMenuItem(child))}
-        </div>
-      </>
-    );
-  };
-
   return (
-    <nav className="hidden md:flex items-center space-x-1 px-2 py-1">
-      {menuItems.map((item) => (
-        <div key={item.label} className="relative group">
-          {renderMenuItem(item)}
+    <nav className="hidden md:flex items-center justify-between w-full bg-transparent px-4 py-3 relative">
+      {/* Bouton "Menu" à droite */}
+      <div className="flex items-center space-x-4">
+        <button
+          className="text-gray-800 text-sm font-medium hover:underline"
+          onClick={() => setShowMegaMenu(!showMegaMenu)}
+        >
+          Menu
+        </button>
+      </div>
+
+      {/* Mega-menu (quand showMegaMenu === true) */}
+      {showMegaMenu && (
+        <div
+          className="
+            absolute top-full left-0 w-full
+            bg-white
+            mt-0
+            shadow-lg
+            grid grid-cols-3
+            py-4
+          "
+        >
+          {/* Colonne 1 (MenuItems) */}
+          <div className="border-r border-gray-200">
+            {menuItems.map((item) => renderMenuItem(item))}
+          </div>
+
+          {/* Colonne 2 & 3 (ex. Sous-items, images, etc.) */}
+          <div className="col-span-2 px-4">
+            <h3 className="font-bold text-gray-700 mb-2">Services & Avantages</h3>
+            <p className="text-sm text-gray-600">
+              Ici vous pouvez ajouter des blocs explicatifs, des images, etc.
+              par exemple “Airport Guides”, “Rides”, “GrabFood”, ...
+            </p>
+            {/* Ou faire un .map pour autre contenu */}
+          </div>
         </div>
-      ))}
+      )}
     </nav>
   );
 };

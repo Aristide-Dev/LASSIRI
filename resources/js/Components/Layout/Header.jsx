@@ -12,15 +12,15 @@ const Header = ({ setContactOpen, setDownloadOpen }) => {
   const handleCloseMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed w-full z-50 bg-gradient-to-tr from-primary to-gray-900 shadow-xl">
+    <header className="fixed w-full z-50  bg-transparent">
       {/* TopBar peut contenir des informations supplémentaires, ou des CTA */}
       <TopBar
         setContactOpen={setContactOpen}
         setDownloadOpen={setDownloadOpen}
       />
 
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-2">
+      <div className="bg-gradient-to-tr from-primary to-green-700 shadow-xl">
+        <div className="flex items-center justify-between py-2 w-full">
           {/* Logo */}
           <Logo />
 
