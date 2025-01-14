@@ -12,20 +12,20 @@ export default function CompanyInfo() {
       transition={{ duration: 0.6 }}
     >
     <div className="flex gap-0 items-center">
-    <img
+    {/* <img
       className="h-8"
       src="/images/logo/brandingGn.png"
       alt="Logo Lassiri"
       loading="lazy"
-    />
+    /> */}
     <img
-      className="h-16"
-      src="/images/logo/logo-lassiri.png"
+      className="h-10"
+      src="/images/logo/logo02.png"
       alt="Logo Lassiri"
       loading="lazy"
     />
     </div>
-      <p className="text-gray-50 text-base max-w-md">
+      <p className="text-white text-base max-w-md">
         Solutions innovantes pour votre business : transport, livraison, et paiement.
         Simplifiez vos opérations avec notre plateforme tout-en-un.
       </p>

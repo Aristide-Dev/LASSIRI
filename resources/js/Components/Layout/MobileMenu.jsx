@@ -85,7 +85,7 @@ export default function MobileMenu({ isOpen, onClose, setContactOpen, setDownloa
           />
           <img
             className="h-8 w-auto ml-2"
-            src="/images/logo/logo-lassiri.png"
+            src="/images/logo/logo02.png"
             alt="Lassiri Logo"
           />
         </div>

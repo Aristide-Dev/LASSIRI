@@ -39,13 +39,13 @@ const footerSections = [
 
 export default function Footer({ setContactOpen, setDownloadOpen }) {
   return (
-    <footer className="bg-gradient-to-r from-primary to-gray-800 border-t border-gray-200 shadow-lg" aria-label="Pied de page">
+    <footer className="bg-gradient-to-r from-gray-300 to-gray-900 border-t border-gray-200 shadow-lg" aria-label="Pied de page">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <motion.div
           className="xl:grid xl:grid-cols-3 xl:gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 1 }}
         >
           <div className="xl:col-span-1">
             <CompanyInfo />
@@ -64,9 +64,9 @@ export default function Footer({ setContactOpen, setDownloadOpen }) {
             </div>
           </div>
         </motion.div>
-
-        <Copyright />
       </div>
+
+<Copyright />
     </footer>
   );
 }

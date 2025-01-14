@@ -4,7 +4,7 @@ import { Link, usePage } from '@inertiajs/react';
 
 
 export const TopBar = ({setContactOpen, setDownloadOpen}) => (
-  <div className="w-full mx-auto px-2 sm:px-6 lg:px-8 bg-white" aria-label="Top Navigation">
+  <div className="w-full mx-auto px-2 sm:px-6 lg:px-8 bg-transparent" aria-label="Top Navigation">
         <div className="w-full py-1 flex items-center justify-end">
           {/* Logo Section */}
           {/* <div className="flex items-center">

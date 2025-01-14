@@ -14,7 +14,7 @@ export default function SocialLinks() {
         <motion.a
           key={social.name}
           href={social.href}
-          className="text-gray-400 hover:text-primary"
+          className="text-white hover:text-primary"
           whileHover={{ scale: 1.1, y: -2 }}
           transition={{ type: 'spring', stiffness: 300 }}
           aria-label={`Visitez notre page ${social.name}`}
