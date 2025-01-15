@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Slider from 'react-slick';
-import { ArrowRight, ChevronDown } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {
@@ -35,14 +34,14 @@ const slides = [
       { label: 'Commander', href: '#livraison', style: 'primary' },
     ],
   },
-  // {
-  //   image: '/images/slides/couple-enjoying-food-restaurant.jpg',
-  //   title: 'Groupe d’amis qui payent ensemble',
-  //   description: 'Partagez la note au restaurant ou faites des virements groupés en un seul geste.',
-  //   buttons: [
-  //     { label: 'Voir les fonctionnalités', href: '#amis', style: 'primary' },
-  //   ],
-  // },
+  {
+    image: '/images/slides/couple-enjoying-food-restaurant.jpg',
+    title: 'Groupe d’amis qui payent ensemble',
+    description: 'Partagez la note au restaurant ou faites des virements groupés en un seul geste.',
+    buttons: [
+      { label: 'Voir les fonctionnalités', href: '#amis', style: 'primary' },
+    ],
+  },
   {
     image: '/images/slides/people-traveling-back-crammed-vehicle-down-road-india.jpg',
     title: 'Business local ou marchand',
@@ -69,8 +68,6 @@ const slides = [
     ],
   },
 ];
-
-
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -103,11 +100,47 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
+      {/* --- VIDEO (cachée ou usage background) --- */}
+      {/* 
+         Si vous voulez la masquer, appliquez un style inoffensif.
+         Sinon, pour la voir en background, vous pourriez la placer
+         en absolute, derrière le slider, etc.
+      */}
+      <video
+        id="hero-video"
+        style={{ width: 1000, objectFit: 'cover' }}
+        playsInline
+        preload="auto"
+        loop
+        muted
+        autoPlay // si vous souhaitez qu'elle démarre automatiquement
+        className="relative h-[50vh] min-h-[650px] w-full"
+      >
+        {/* 
+          Premier <source> : .webm
+          Second <source> : .mp4 
+          On peut en ajouter +, l'ordre peut varier
+        */}
+        <source
+          src="https://assets.grab.com/wp-content/uploads/media/videos/hero_banner_singapore_q50_mobile.webm"
+          type="video/webm"
+          className="relative h-[50vh] min-h-[650px] w-full object-cover  bg-red-500"
+        />
+        <source
+          src="https://assets.grab.com/wp-content/uploads/media/videos/hero_banner_singapore_q50_mobile.mp4"
+          type="video/mp4"
+          className="relative h-[50vh] min-h-[650px] w-full object-cover bg-red-500"
+        />
+        {/* 
+           Optionnel, d’autres sources. 
+           HTML standard ignore celles qu’il ne peut pas lire.
+         */}
+      </video>
 
       {/* --- SLIDER IMAGES --- */}
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative h-[80vh] min-h-[650px]">
+          <div key={index} className="relative h-[50vh] min-h-[650px]">
             {/* Image de fond */}
             <div className="absolute inset-0">
               <img
@@ -203,94 +236,3 @@ export default function Hero() {
     </section>
   );
 }
-
-export function HeroVideo() {
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
-
-  return (
-    <section className="relative h-[80vh] w-full overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-full w-full object-cover"
-        >
-          <source
-            src="https://assets.grab.com/wp-content/uploads/media/videos/hero_banner_singapore_q50_mobile.webm"
-            type="video/webm"
-          />
-          <source
-            src="https://assets.grab.com/wp-content/uploads/media/videos/hero_banner_singapore_q50_mobile.mp4"
-            type="video/mp4"
-          />
-        </video>
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <motion.h1 
-            className="mb-6 text-5xl font-bold leading-tight md:text-6xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            L’ Application qui révolutionne la vie quotidienne
-          </motion.h1>
-          
-          <motion.p 
-            className="mb-8 max-w-2xl text-lg text-gray-200 md:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            L’ Application qui révolutionne la vie quotidienne
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <button className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white px-8 py-3 font-bold text-black transition duration-300 hover:scale-105">
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          onClick={scrollToContent}
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <ChevronDown className="h-8 w-8 text-white" />
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-

@@ -113,20 +113,20 @@ export const menuItems = [
     icon: Info,
     href: 'a.propos', // => route('a.propos')
   },
-  // {
-  //   label: 'Telechargement',
-  //   icon: Download,
-  //   // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
-  //   href: null,
-  //   type: 'action',
-  //   actionKey: 'openDownload',
-  // },
-  // {
-  //   label: 'Contact',
-  //   icon: PhoneCall,
-  //   // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
-  //   href: null,
-  //   type: 'action',
-  //   actionKey: 'openContact',
-  // },
+  {
+    label: 'Telechargement',
+    icon: Download,
+    // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
+    href: null,
+    type: 'action',
+    actionKey: 'openDownload',
+  },
+  {
+    label: 'Contact',
+    icon: PhoneCall,
+    // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
+    href: null,
+    type: 'action',
+    actionKey: 'openContact',
+  },
 ];

@@ -14,13 +14,13 @@ const Header = ({ setContactOpen, setDownloadOpen }) => {
   return (
     <header className="fixed w-full z-50 bg-white/95 shadow-2xl">
       {/* TopBar peut contenir des informations supplémentaires, ou des CTA */}
-      <TopBar
+      {/* <TopBar
         setContactOpen={setContactOpen}
         setDownloadOpen={setDownloadOpen}
-      />
+      /> */}
 
       <div className="max-w-7xl mx-auto bg-transparent">
-        <div className="flex items-center justify-between py-2 w-full mx-auto px-3">
+        <div className="flex items-center justify-between py-8 w-full mx-auto px-3">
           {/* Logo */}
           <Logo />
 

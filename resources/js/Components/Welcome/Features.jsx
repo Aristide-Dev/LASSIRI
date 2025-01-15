@@ -98,7 +98,7 @@ export default function Features() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Découvrez nos outils puissants
+            Nos Solutions
           </motion.p>
           <motion.p
             className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto"
@@ -143,8 +143,7 @@ export default function Features() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base text-primary font-semibold tracking-wide uppercase">
             Avantages
@@ -157,7 +156,6 @@ export default function Features() {
           </p>
         </div>
 
-        {/* Features Grid */}
         <div className="mt-20">
           <motion.dl
             className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4"
@@ -197,7 +195,7 @@ export default function Features() {
             ))}
           </motion.dl>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

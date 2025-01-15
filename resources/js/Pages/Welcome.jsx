@@ -1,6 +1,6 @@
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/Layouts/AppLayout';
-import Hero from '@/Components/Welcome/Hero';
+import Hero, {HeroVideo} from '@/Components/Welcome/Hero';
 import Features from '@/Components/Welcome/Features';
 import Services from '@/Components/Welcome/Services';
 import Stats from '@/Components/Welcome/Stats';
@@ -8,6 +8,7 @@ import Testimonials from '@/Components/Welcome/Testimonials';
 import News from '@/Components/Welcome/News';
 import Partners from '@/Components/Welcome/Partners';
 import CallToAction from '@/Components/Welcome/CallToAction';
+import HowItWorks from '@/Components/Welcome/HowItWorks';
 
 export default function Welcome() {
   return (
@@ -18,14 +19,16 @@ export default function Welcome() {
       </Head>
 
       <main>
+        {/* <HeroVideo /> */}
         <Hero />
         <Features />
-        <Services />
-        {/* <Stats /> */}
+        <HowItWorks />
         <Testimonials />
-        <News />
         <CallToAction />
-        <Partners />
+        {/* <Services /> */}
+        {/* <Stats /> */}
+        {/* <News /> */}
+        {/* <Partners /> */}
       </main>
     </AppLayout>
   );

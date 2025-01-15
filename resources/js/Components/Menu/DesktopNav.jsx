@@ -101,7 +101,7 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
 
     // Classes de base
     const baseClasses =
-      'flex items-center px-2 py-2 rounded-md transition-colors text-md font-medium mx-2';
+      'flex items-center px-2 py-2 rounded-md transition-colors text-md font-medium mx-1';
     // Si le parent ou l'item est actif, on l'affiche différemment
     const activeClasses = (isActive || isDropdownActive)
       ? 'bg-primary text-white'
