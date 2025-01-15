@@ -3,8 +3,18 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, PlayCircle, Apple, Smartphone } from 'lucide-react';
 
+import {
+  GooglePlayButton,
+  AppStoreButton,
+  AppGalleryButton,
+  ButtonsContainer,
+} from "react-mobile-app-button";
+
 
 export default function DownloadModal({ isOpen, onClose }) {
+
+  const APKUrl = "https://play.google.com/store/apps/details?id=host.exp.exponent";
+  const IOSUrl = "https://apps.apple.com/us/app/expo-go/id982107779";
 
     const downloadLinks = {
       android: {
@@ -79,84 +89,26 @@ export default function DownloadModal({ isOpen, onClose }) {
           </div>
 
           {/* Boutons de téléchargement */}
-          <div className="space-y-4">
-            {/* Google Play */}
-            <motion.a
-              href={downloadLinks.android.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#00C853] to-[#69F0AE] hover:shadow-lg transition-all ${os === 'android' ? 'ring-4 ring-[#00C853]/20' : ''
-                }`}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <PlayCircle className="h-8 w-8 text-white mr-3" />
-                  <div className="text-left">
-                    <p className="text-xs text-white/90">TÉLÉCHARGER SUR</p>
-                    <p className="text-lg font-semibold text-white">Google Play</p>
-                  </div>
-                </div>
-                {os === 'android' && (
-                  <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                    Recommandé
-                  </span>
-                )}
-              </div>
-            </motion.a>
-
-            {/* App Store */}
-            <motion.a
-              href={downloadLinks.ios.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#000000] to-[#434343] hover:shadow-lg transition-all ${os === 'ios' ? 'ring-4 ring-black/20' : ''
-                }`}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Apple className="h-8 w-8 text-white mr-3" />
-                  <div className="text-left">
-                    <p className="text-xs text-white/90">TÉLÉCHARGER SUR L'</p>
-                    <p className="text-lg font-semibold text-white">App Store</p>
-                  </div>
-                </div>
-                {os === 'ios' && (
-                  <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                    Recommandé
-                  </span>
-                )}
-              </div>
-            </motion.a>
-
-            {/* AppGallery */}
-            <motion.a
-              href={downloadLinks.harmony.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block w-full p-4 rounded-xl bg-gradient-to-r from-[#C10D31] to-[#FF1744] hover:shadow-lg transition-all ${os === 'harmony' ? 'ring-4 ring-[#C10D31]/20' : ''
-                }`}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Smartphone className="h-8 w-8 text-white mr-3" />
-                  <div className="text-left">
-                    <p className="text-xs text-white/90">TÉLÉCHARGER SUR</p>
-                    <p className="text-lg font-semibold text-white">AppGallery</p>
-                  </div>
-                </div>
-                {os === 'harmony' && (
-                  <span className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                    Recommandé
-                  </span>
-                )}
-              </div>
-            </motion.a>
+          <div className="space-y-4 flex flex-col gap-1 justify-center items-center">
+            
+                  <GooglePlayButton
+                    url={APKUrl}
+                    theme={"light"}
+                    width={300}
+                    className={"custom-style GooglePlayButton hover:bg-gray-300 border-none"}
+                  />
+                  <AppStoreButton
+                    url={IOSUrl}
+                    theme={"light"}
+                    width={300}
+                    className={"custom-style AppStoreButton hover:bg-gray-300  border-none"}
+                  />
+                  <AppGalleryButton
+                    url={IOSUrl}
+                    theme={"light"}
+                    width={300}
+                    className={"custom-style AppGalleryButton hover:bg-gray-300  border-none"}
+                  />
           </div>
         </motion.div>
       </motion.div>
