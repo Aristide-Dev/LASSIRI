@@ -100,7 +100,7 @@ export default function AppLayout({ children }) {
         </div>
       )}
 
-      <main className="flex-grow mt-24 pt-2  md:mt-28 md:pt-0">{children}</main>
+      <main className="flex-grow mt-28 pt-2">{children}</main>
 
       {/* Offcanvas / Modals */}
       <ContactOffcanvas

@@ -101,11 +101,11 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
 
     // Classes de base
     const baseClasses =
-      'flex items-center px-2 py-2 rounded-md transition-colors text-md font-medium';
+      'flex items-center px-2 py-2 rounded-md transition-colors text-md font-medium mx-2';
     // Si le parent ou l'item est actif, on l'affiche différemment
     const activeClasses = (isActive || isDropdownActive)
       ? 'bg-primary text-white'
-      : 'text-black hover:bg-primary hover:text-gray-500';
+      : 'text-black hover:bg-primary hover:text-gray-200';
 
     // === Item sans sous-menu ===
     if (!item.children) {
@@ -160,7 +160,7 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
         {/* Mega-menu container au survol */}
         <div
           className={`
-            absolute left-0 top-full hidden group-hover:grid grid-cols-2 gap-4 min-w-[480px] z-50 
+            absolute -left-14 top-full hidden group-hover:grid grid-cols-2 gap-4 min-w-[480px] z-50 
             bg-white border border-primary-200 rounded-md shadow-lg py-4
             opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 
             transition-all duration-200 ease-out

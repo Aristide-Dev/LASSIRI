@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Mail } from 'lucide-react';
 
 export default function Copyright() {
   return (
@@ -11,8 +12,8 @@ export default function Copyright() {
       <p className="text-base text-gray-300 text-center">
         &copy; {new Date().getFullYear()} <span className="font-bold text-primary-50">LASSIRI</span>. Tous droits réservés.
       </p>
-      <p className="text-sm text-gray-300 text-center mt-2">
-        Développé avec ❤️ pour améliorer votre quotidien
+      <p className="text-sm text-gray-300 text-center mt-2 flex flex-row justify-center items-center gap-1">
+        Développé avec <Mail/> pour améliorer votre quotidien
       </p>
     </motion.div>
   );

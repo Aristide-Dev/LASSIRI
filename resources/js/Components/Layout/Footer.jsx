@@ -3,6 +3,13 @@ import CompanyInfo from './Footer/CompanyInfo';
 import FooterSection from './Footer/FooterSection';
 import Copyright from './Footer/Copyright';
 
+import {
+  GooglePlayButton,
+  AppStoreButton,
+  AppGalleryButton,
+  ButtonsContainer,
+} from "react-mobile-app-button";
+
 const footerSections = [
   {
     title: 'Solutions',
@@ -37,6 +44,10 @@ const footerSections = [
   },
 ];
 
+
+const APKUrl = "https://play.google.com/store/apps/details?id=host.exp.exponent";
+const IOSUrl = "https://apps.apple.com/us/app/expo-go/id982107779";
+
 export default function Footer({ setContactOpen, setDownloadOpen }) {
   return (
     <footer className="bg-gradient-to-r from-gray-300 to-gray-900 border-t border-gray-200 shadow-lg" aria-label="Pied de page">
@@ -66,7 +77,30 @@ export default function Footer({ setContactOpen, setDownloadOpen }) {
         </motion.div>
       </div>
 
-<Copyright />
+      <div className="flex flex-col md:flex-row w-full gap-5 justify-center items-center">
+      <GooglePlayButton
+        url={APKUrl}
+        theme={"light"}
+        width={200}
+        className={"custom-style GooglePlayButton bg-white border-none"}
+      />
+      <AppStoreButton
+        url={IOSUrl}
+        theme={"light"}
+        width={200}
+        className={"custom-style AppStoreButton bg-white border-none"}
+      />
+      <AppGalleryButton
+        url={IOSUrl}
+        theme={"light"}
+        width={200}
+        className={"custom-style AppGalleryButton bg-white border-none"}
+      />
+    </div>
+
+
+
+      <Copyright />
     </footer>
   );
 }
