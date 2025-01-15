@@ -1,6 +1,8 @@
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/Layouts/AppLayout';
 import Hero from '@/Components/Solutions/Hero';
+import Pricing from '@/Components/Solutions/Pricing';
+import Testimonials from '@/Components/Solutions/Testimonials';
 import Features from '@/Components/Solutions/Features';
 import Solutions from '@/Components/Solutions/Solutions';
 // import Pricing from '@/Components/Solutions/Pricing';
@@ -68,7 +70,7 @@ export default function SolutionsPage() {
           transition={{ delay: 0.2 }}
           aria-labelledby="features-title"
         >
-          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto py-16 px-4 sm:px-6 lg:px-8">
             <h2 id="features-title" className="sr-only">
               Fonctionnalités principales
             </h2>
@@ -77,6 +79,7 @@ export default function SolutionsPage() {
         </motion.section>
 
         {/* Solutions Section */}
+        {/* {false && (
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -92,9 +95,10 @@ export default function SolutionsPage() {
             <Solutions />
           </div>
         </motion.section>
+        )} */}
 
         {/* Pricing Section (optionnel) */}
-        {false && (
+        {/* {false && (
           <motion.section
             className="bg-white"
             initial="hidden"
@@ -111,10 +115,10 @@ export default function SolutionsPage() {
               <Pricing />
             </div>
           </motion.section>
-        )}
+        )} */}
 
         {/* Testimonials Section (optionnel) */}
-        {false && (
+        {true && (
           <motion.section
             className="bg-gray-50"
             initial="hidden"
@@ -159,7 +163,7 @@ export default function SolutionsPage() {
           transition={{ delay: 1.2 }}
           aria-labelledby="cta-title"
         >
-          <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto py-16 px-4 sm:px-6 lg:px-8">
             <h2 id="cta-title" className="sr-only">Appel à l’action</h2>
             <CallToAction />
           </div>

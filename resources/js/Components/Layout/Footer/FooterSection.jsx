@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from '@inertiajs/react';
 
-export default function FooterSection({ title, links }) {
+export default function FooterSection({ title, links, showContact=false}) {
   return (
     <div>
       <h3 className="text-sm font-bold text-white tracking-wider uppercase">
@@ -24,7 +24,7 @@ export default function FooterSection({ title, links }) {
           >
             <Link
               href={link.href}
-              className="text-base text-gray-300 hover:text-primary-200 transition-colors duration-200"
+              className="text-base text-gray-200 font-medium hover:text-primary-200 transition-colors duration-200"
             >
               {link.label}
             </Link>

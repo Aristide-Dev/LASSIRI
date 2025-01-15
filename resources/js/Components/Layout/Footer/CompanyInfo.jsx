@@ -20,7 +20,7 @@ export default function CompanyInfo() {
     /> */}
     <img
       className="h-10"
-      src="/images/logo/logo_lassiri_377x91.png"
+      src="/images/logo/lassiri_logo_erp_login_1.png"
       alt="Logo Lassiri"
       loading="lazy"
     />
