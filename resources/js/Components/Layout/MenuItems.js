@@ -111,8 +111,16 @@ export const menuItems = [
   {
     label: 'À propos',
     icon: Info,
-    href: 'a.propos', // => route('a.propos')
+    href: null,
+    type: 'action',
+    actionKey: 'openAbout',
   },
+  
+  // {
+  //   label: 'À propos',
+  //   icon: Info,
+  //   href: 'a.propos', // => route('a.propos')
+  // },
   {
     label: 'Telechargement',
     icon: Download,

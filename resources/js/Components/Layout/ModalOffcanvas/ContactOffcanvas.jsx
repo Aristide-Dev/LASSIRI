@@ -1,83 +1,95 @@
 // ContactOffcanvas.jsx
-import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { 
+    getMainPhone, 
+    getMainEmail, 
+    getFullAddress, 
+    getBusinessHours 
+} from '@/Utils/Lassiri';
 
 export default function ContactOffcanvas({ isOpen, onClose }) {
+    const hours = getBusinessHours();
+
     return (
-        <AnimatePresence>
-            {isOpen && (
+        <div className={`fixed inset-y-0 right-0 w-full sm:w-96 bg-white shadow-xl transform ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+        } transition-transform duration-300 ease-in-out z-50`}>
+            
+            <div className="h-full flex flex-col">
+                {/* Header */}
+                <div className="px-6 py-4 border-b">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-xl font-semibold">Contactez-nous</h2>
+                        <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full">
+                            <span className="sr-only">Fermer</span>
+                            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
-                <motion.div
-                    className="fixed inset-0 z-50 flex justify-end"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                 >
-                    {/* Overlay */}
-                    <div
-                        className="fixed inset-0 bg-black/50 backdrop-blur-sm cursor-pointer min-h-screen h-full"
-                        onClick={onClose}
-                    />
-
-                    <motion.div
-                        className="relative w-80 bg-white h-screen shadow-xl p-6 flex flex-col overflow-y-auto"
-                        initial={{ x: '100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '100%' }}
-                        transition={{ type: 'tween', duration: 0.3 }}
-                     >
-                        {/* Bouton fermeture */}
-                        <motion.button
-                            onClick={onClose}
-                            className="absolute top-4 right-4 p-2 bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-100 transition-colors"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            aria-label="Fermer le panneau de contact"
-                        >
-                            <X className="w-5 h-5 text-gray-600" />
-                        </motion.button>
-
-                        {/* Contenu du offcanvas */}
-                        <div className="flex flex-col h-full">
-                            <div className="mt-10">
-                                <h2 className="text-2xl font-bold text-gray-900">Contactez-nous</h2>
-                                <p className="text-gray-700 mt-3">Pour toute question ou demande d'information, n'hésitez pas à nous contacter :</p>
+                {/* Content */}
+                <div className="flex-1 overflow-y-auto p-6">
+                    <div className="space-y-6">
+                        {/* Téléphone */}
+                        <div className="flex items-center space-x-4">
+                            <div className="flex-shrink-0">
+                                <Phone className="h-6 w-6 text-primary-600" />
                             </div>
-
-                            <div className="mt-6 space-y-2">
-                                <p className="text-gray-800"><span className="font-medium text-primary">Email :</span> contact@lassiri.com</p>
-                                <p className="text-gray-800"><span className="font-medium text-primary">Téléphone :</span> +224 123 456 789</p>
-                                <p className="text-gray-800"><span className="font-medium text-primary">Adresse :</span> Conakry, Guinée</p>
-                            </div>
-
-                            <div className="mt-10 border-t border-gray-200 pt-6">
-                                <h3 className="text-lg font-semibold text-gray-900 mb-4">Réseaux sociaux</h3>
-                                <ul className="space-y-2">
-                                    <li>
-                                        <a href="#" className="text-primary hover:underline transition-colors">
-                                            Facebook
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="text-primary hover:underline transition-colors">
-                                            Instagram
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="text-primary hover:underline transition-colors">
-                                            Twitter
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="mt-auto text-sm text-gray-500 pt-6">
-                                <p>Merci de votre visite. Nous restons à votre disposition pour plus d'informations.</p>
+                            <div>
+                                <p className="text-sm text-gray-500">Téléphone</p>
+                                <a href={`tel:${getMainPhone()}`} 
+                                   className="text-base font-medium text-gray-900 hover:text-primary-600">
+                                    {getMainPhone()}
+                                </a>
                             </div>
                         </div>
-                    </motion.div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+
+                        {/* Email */}
+                        <div className="flex items-center space-x-4">
+                            <div className="flex-shrink-0">
+                                <Mail className="h-6 w-6 text-primary-600" />
+                            </div>
+                            <div>
+                                <p className="text-sm text-gray-500">Email</p>
+                                <a href={`mailto:${getMainEmail()}`} 
+                                   className="text-base font-medium text-gray-900 hover:text-primary-600">
+                                    {getMainEmail()}
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Adresse */}
+                        <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0">
+                                <MapPin className="h-6 w-6 text-primary-600" />
+                            </div>
+                            <div>
+                                <p className="text-sm text-gray-500">Adresse</p>
+                                <p className="text-base text-gray-900">
+                                    {getFullAddress()}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Horaires */}
+                        <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0">
+                                <Clock className="h-6 w-6 text-primary-600" />
+                            </div>
+                            <div>
+                                <p className="text-sm text-gray-500">Horaires d'ouverture</p>
+                                <div className="text-base text-gray-900">
+                                    <p>Lun-Ven: {hours.weekdays}</p>
+                                    <p>Samedi: {hours.saturday}</p>
+                                    <p>Dimanche: {hours.sunday}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }

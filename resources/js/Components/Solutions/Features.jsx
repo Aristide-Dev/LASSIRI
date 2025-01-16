@@ -148,7 +148,7 @@ export default function Features() {
                     <a
                       href={feature.link}
                       className={`inline-flex items-center text-sm font-medium ${feature.color} hover:opacity-80 transition-opacity`}
-                    >
+                     >
                       En savoir plus
                       <svg
                         className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"

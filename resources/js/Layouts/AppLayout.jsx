@@ -8,6 +8,7 @@ import Footer from '@/Components/Layout/Footer';
 import BackToTop from '@/Components/BackToTop';
 import ContactOffcanvas from '@/Components/Layout/ModalOffcanvas/ContactOffcanvas';
 import DownloadModal from '@/Components/Layout/ModalOffcanvas/DownloadModal';
+import AboutOffcanvas from '@/Components/Layout/ModalOffcanvas/AboutOffcanvas';
 import LoaderOverlay from '@/Components/LoaderOverlay'; // Votre loader (overlay)
 
 export default function AppLayout({ children }) {
@@ -28,6 +29,7 @@ export default function AppLayout({ children }) {
   // États pour vos modals/offcanvas
   const [isContactOpen, setContactOpen] = useState(false);
   const [isDownloadOpen, setDownloadOpen] = useState(false);
+  const [isAboutOpen, setAboutOpen] = useState(false);
 
   const updateState = (updates) => {
     setState((prev) => ({ ...prev, ...updates }));
@@ -77,6 +79,7 @@ export default function AppLayout({ children }) {
       <Header 
         setContactOpen={setContactOpen}
         setDownloadOpen={setDownloadOpen}
+        setAboutOpen={setAboutOpen}
       />
 
       {/* Flash Messages */}
@@ -111,6 +114,10 @@ export default function AppLayout({ children }) {
         isOpen={isDownloadOpen}
         onClose={() => setDownloadOpen(false)}
       />
+      <AboutOffcanvas
+        isOpen={isAboutOpen}
+        onClose={() => setAboutOpen(false)}
+      />
 
       {/* Bouton "Back to Top" si state.showBackToTop === true */}
       <BackToTop />
@@ -119,6 +126,7 @@ export default function AppLayout({ children }) {
       <Footer 
         setContactOpen={setContactOpen}
         setDownloadOpen={setDownloadOpen}
+        setAboutOpen={setAboutOpen}
       />
     </div>
   );

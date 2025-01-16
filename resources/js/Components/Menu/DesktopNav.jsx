@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { menuItems } from '../Layout/MenuItems';
 import { usePage } from '@inertiajs/react';
 
-export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
+export const DesktopNav = ({ setContactOpen, setDownloadOpen, setAboutOpen }) => {
   const { url } = usePage();
 
   // Vérifie si la route actuelle correspond à routeName
@@ -27,6 +27,9 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
             }
             if (child.actionKey === 'openDownload') {
               setDownloadOpen?.(true);
+            }
+            if (child.actionKey === 'openAbout') {
+              setAboutOpen?.(true);
             }
           }}
           className="px-4 py-2 hover:bg-primary-200 rounded-md transition-colors text-left w-full"
@@ -118,6 +121,9 @@ export const DesktopNav = ({ setContactOpen, setDownloadOpen }) => {
               }
               if (item.actionKey === 'openDownload') {
                 setDownloadOpen?.(true);
+              }
+              if (item.actionKey === 'openAbout') {
+                setAboutOpen?.(true);
               }
             }}
             className={`${baseClasses} ${activeClasses}`}

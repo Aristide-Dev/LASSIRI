@@ -4,7 +4,7 @@ import { Mail } from 'lucide-react';
 export default function Copyright() {
   return (
     <motion.div
-      className="mt-12 border-t border-gray-900 bg-black py-8 w-full"
+      className="mt-12 border-t border-gray-500 bg-black py-8 w-full"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.4 }}

@@ -8,6 +8,7 @@ export const MobileNav = ({
   onClose,
   setContactOpen,
   setDownloadOpen,
+  setAboutOpen,
 }) => {
   const [openSubmenus, setOpenSubmenus] = useState({});
   const { url } = usePage();
@@ -47,6 +48,9 @@ export const MobileNav = ({
                     }
                     if (item.actionKey === 'openDownload') {
                       setDownloadOpen?.(true);
+                    }
+                    if (item.actionKey === 'openAbout') {
+                      setAboutOpen?.(true);
                     }
                   }}
                   className={`w-full flex items-center px-2 py-3 rounded-md transition-colors text-md font-medium 
@@ -127,6 +131,9 @@ export const MobileNav = ({
                             }
                             if (child.actionKey === 'openDownload') {
                               setDownloadOpen?.(true);
+                            }
+                            if (child.actionKey === 'openAbout') {
+                              setAboutOpen?.(true);
                             }
                           }}
                           className="flex items-center my-1 py-2 px-2 text-sm transition-colors rounded-md text-primary-700 hover:bg-primary-100"

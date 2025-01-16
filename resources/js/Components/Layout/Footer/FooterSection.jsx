@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from '@inertiajs/react';
 
-export default function FooterSection({ title, links, showContact=false}) {
+export default function FooterSection({ title, links, setContactOpen=null, setAboutOpen=null}) {
+  const baseClass = "text-base text-gray-200 font-medium hover:text-primary-200 transition-colors duration-200";
   return (
     <div>
       <h3 className="text-sm font-bold text-white tracking-wider uppercase">
@@ -22,12 +23,12 @@ export default function FooterSection({ title, links, showContact=false}) {
             }}
             transition={{ duration: 0.4 }}
           >
-            <Link
+           {link.type === 'action' ? <button onClick={link.actionKey === 'openContact' ? setContactOpen : setAboutOpen} className={baseClass}>{link.label}</button> : <Link
               href={link.href}
-              className="text-base text-gray-200 font-medium hover:text-primary-200 transition-colors duration-200"
+              className={baseClass}
             >
               {link.label}
-            </Link>
+            </Link>}
           </motion.li>
         ))}
       </motion.ul>

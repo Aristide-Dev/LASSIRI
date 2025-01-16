@@ -5,7 +5,7 @@ import { Logo } from './Logo';
 import { DesktopNav } from '@/Components/Menu/DesktopNav';
 import { MobileNav } from '@/Components/Menu/MobileNav';
 
-const Header = ({ setContactOpen, setDownloadOpen }) => {
+const Header = ({ setContactOpen, setDownloadOpen, setAboutOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Fonction pour fermer le menu mobile
@@ -28,6 +28,7 @@ const Header = ({ setContactOpen, setDownloadOpen }) => {
           <DesktopNav
             setContactOpen={setContactOpen}
             setDownloadOpen={setDownloadOpen}
+            setAboutOpen={setAboutOpen}
           />
 
           {/* Bouton pour ouvrir/fermer le menu mobile : visible en sm ou md- */}
@@ -47,6 +48,8 @@ const Header = ({ setContactOpen, setDownloadOpen }) => {
         onClose={handleCloseMenu}
         setContactOpen={setContactOpen}
         setDownloadOpen={setDownloadOpen}
+        setAboutOpen={setAboutOpen}
+
       />
     </header>
   );

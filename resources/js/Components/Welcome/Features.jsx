@@ -1,55 +1,67 @@
 import { motion } from 'framer-motion';
-import { Truck, CreditCard, Clock, Shield, Globe, ChartBar } from 'lucide-react';
+import { Truck, CreditCard, Clock, Shield, Globe, ChartBar, Wallet  } from 'lucide-react';
 
 const _features = [
   {
     name: 'Transactions Financières',
-    description: 'Transférez et recevez de l’argent en toute sécurité.',
-    icon: CreditCard,
-    color: 'text-green-500',
-    link: '#paiements',
+    description: 'Transférez et recevez de l\'argent en toute sécurité.',
+    icon: Wallet,
+    color: 'text-emerald-500',
+    bgColor: 'bg-emerald-50',
+    borderColor: 'border-emerald-200',
+    link: route('solutions.transactions.finances'),
   },
   {
-    name: 'Transport & Réservation ',
+    name: 'Transport & Réservation',
     description: 'Réservez un taxi, moto-taxi, tricycle en quelques clics.',
     icon: Truck,
     color: 'text-blue-500',
-    link: '#transport',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+    link: route('solutions.transport.reservation'),
   },
   {
     name: 'Solutions de Paiements',
     description: 'Payez vos factures et faites vos achats facilement.',
     icon: CreditCard,
-    color: 'text-green-500',
-    link: '#paiements',
+    color: 'text-violet-500',
+    bgColor: 'bg-violet-50',
+    borderColor: 'border-violet-200',
+    link: route('solutions.paiements'),
   },
   {
     name: 'Commandes & Livraison',
     description: 'Commandez vos repas et produits préférés et recevez-les à domicile.',
     icon: Clock,
-    color: 'text-purple-500',
-    link: '#support',
+    color: 'text-rose-500',
+    bgColor: 'bg-rose-50',
+    borderColor: 'border-rose-200',
+    link: route('solutions.commande.livraison'),
   },
   {
     name: 'Colis & Courriers',
     description: 'Envoyez et recevez des colis en toute confiance.',
     icon: Shield,
-    color: 'text-red-500',
-    link: '#securite',
+    color: 'text-amber-500',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-200',
+    link: route('solutions.colis.courriers'),
   },
   {
     name: 'Autres Services Premium',
     description: 'Accédez à des services exclusifs adaptés à vos besoins.',
     icon: Globe,
     color: 'text-indigo-500',
-    link: '#global',
+    bgColor: 'bg-indigo-50',
+    borderColor: 'border-indigo-200',
+    link: '#',
   },
   {
     name: 'Analyses détaillées',
     description: 'Suivez vos performances avec des tableaux de bord intuitifs.',
     icon: ChartBar,
     color: 'text-yellow-500',
-    link: '#analytics',
+    link: '#',
   },
 ];
 
@@ -131,13 +143,16 @@ export default function Features() {
               </div>
               <h3 className="mt-4 text-lg font-semibold text-gray-900">{feature.name}</h3>
               <p className="mt-2 text-base text-gray-500">{feature.description}</p>
-              <a
-                href={feature.link}
-                className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-primary-600 transition-all"
-                aria-label={`En savoir plus sur ${feature.name}`}
-              >
-                En savoir plus →
-              </a>
+              
+              {feature.link && feature.link !== '#' && (
+                <a
+                  href={feature.link}
+                  className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-primary-600 transition-all"
+                  aria-label={`En savoir plus sur ${feature.name}`}
+                >
+                  En savoir plus →
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

@@ -15,9 +15,11 @@ const footerSections = [
   {
     title: 'Solutions',
     links: [
+      { label: 'Transactions', href: route('solutions.transactions.finances') },
       { label: 'Paiements', href: route('solutions.paiements') },
       { label: 'Transport', href: route('solutions.transport.reservation') },
       { label: 'Livraison', href: route('solutions.commande.livraison') },
+      { label: 'Colis & Courriers', href: route('solutions.colis.courriers') },
     ],
   },
   {
@@ -25,15 +27,18 @@ const footerSections = [
     links: [
       { label: 'Chauffeur', href: route('partenariat.chauffeur') },
       { label: 'Livreur', href: route('partenariat.livreur') },
-      { label: 'Marchand', href: route('partenariat.marchand.paiement') },
+      { label: 'Marchand & Paiements', href: route('partenariat.marchand.paiement') },
+      { label: 'Marchand & Livraison', href: route('partenariat.marchand.livraison') },
     ],
   },
   {
     title: 'Support',
     links: [
       { label: 'Centre d\'aide', href: route('centre.aide') },
+      // { label: 'À propos', href: route('a.propos') },
+
+      { label: 'À propos', href: null, type: 'action', actionKey: 'openAbout' },
       { label: 'Contact', href: null, type: 'action', actionKey: 'openContact' },
-      { label: 'Telechargement', href: null, type: 'action', actionKey: 'openDownload' },
     ],
   },
   {
@@ -49,7 +54,7 @@ const footerSections = [
 const APKUrl = "https://play.google.com/store/apps/details?id=host.exp.exponent";
 const IOSUrl = "https://apps.apple.com/us/app/expo-go/id982107779";
 
-export default function Footer({ setContactOpen, setDownloadOpen }) {
+export default function Footer({ setContactOpen, setDownloadOpen, setAboutOpen }) {
   return (
     <footer className="bg-black border-t border-gray-200 shadow-lg" aria-label="Pied de page">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
@@ -71,7 +76,7 @@ export default function Footer({ setContactOpen, setDownloadOpen }) {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               {footerSections.slice(2).map((section) => (
-                <FooterSection key={section.title} {...section} />
+                <FooterSection key={section.title} {...section} setContactOpen={setContactOpen} setAboutOpen={setAboutOpen} />
               ))}
             </div>
           </div>
