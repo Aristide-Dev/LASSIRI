@@ -34,7 +34,7 @@ const Header = ({ setContactOpen, setDownloadOpen, setAboutOpen }) => {
           {/* Bouton pour ouvrir/fermer le menu mobile : visible en sm ou md- */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-primary-400 bg-primary-300 ml-auto"
+            className="md:hidden p-2 rounded-md hover:bg-primary-800 bg-primary-700 ml-auto text-white"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
