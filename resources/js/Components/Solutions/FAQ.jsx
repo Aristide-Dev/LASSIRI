@@ -30,7 +30,7 @@ export default function FAQ() {
 
   return (
     <section className="bg-white py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export default function FAQ() {
           </p>
         </motion.div>
 
-        <div className="mt-20 max-w-3xl mx-auto">
+        <div className="mt-20 max-w-8xl mx-auto">
           {faqs.map((faq, index) => (
             <motion.div
               key={faq.question}

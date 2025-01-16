@@ -109,7 +109,7 @@ export default function SolutionsPage() {
             aria-labelledby="pricing-title"
           >
             <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-              <h2 id="pricing-title" className="text-3xl font-extrabold text-gray-900">
+              <h2 id="pricing-title" className="sr-only">
                 Nos Tarifs
               </h2>
               <Pricing />
@@ -128,10 +128,10 @@ export default function SolutionsPage() {
             transition={{ delay: 0.8 }}
             aria-labelledby="testimonials-title"
           >
-            <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-              <h2 id="testimonials-title" className="text-3xl font-extrabold text-gray-900">
+            <div className="max-w-7xl mx-auto pb-16 px-4 sm:px-6 lg:px-8">
+              {/* <h2 id="testimonials-title" className="sr-only">
                 Témoignages de nos Clients
-              </h2>
+              </h2> */}
               <Testimonials />
             </div>
           </motion.section>
@@ -147,7 +147,7 @@ export default function SolutionsPage() {
           aria-labelledby="faq-title"
         >
           <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <h2 id="faq-title" className="text-3xl font-extrabold text-gray-900">
+            <h2 id="faq-title" className="sr-only">
               Foire aux questions
             </h2>
             <FAQ />

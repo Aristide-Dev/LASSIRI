@@ -51,7 +51,7 @@ const IOSUrl = "https://apps.apple.com/us/app/expo-go/id982107779";
 
 export default function Footer({ setContactOpen, setDownloadOpen }) {
   return (
-    <footer className="bg-gray-900 border-t border-gray-200 shadow-lg" aria-label="Pied de page">
+    <footer className="bg-gradient-to-b from-gray-900 to-black border-t border-gray-200 shadow-lg" aria-label="Pied de page">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <motion.div
           className="xl:grid xl:grid-cols-3 xl:gap-8"

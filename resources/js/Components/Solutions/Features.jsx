@@ -9,7 +9,7 @@ const features = [
     color: 'text-emerald-500',
     bgColor: 'bg-emerald-50',
     borderColor: 'border-emerald-200',
-    link: '#paiements',
+    link: route('solutions.transactions.finances'),
   },
   {
     name: 'Transport & Réservation',
@@ -18,7 +18,7 @@ const features = [
     color: 'text-blue-500',
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-200',
-    link: '#transport',
+    link: route('solutions.transport.reservation'),
   },
   {
     name: 'Solutions de Paiements',
@@ -27,7 +27,7 @@ const features = [
     color: 'text-violet-500',
     bgColor: 'bg-violet-50',
     borderColor: 'border-violet-200',
-    link: '#paiements',
+    link: route('solutions.paiements'),
   },
   {
     name: 'Commandes & Livraison',
@@ -36,7 +36,7 @@ const features = [
     color: 'text-rose-500',
     bgColor: 'bg-rose-50',
     borderColor: 'border-rose-200',
-    link: '#support',
+    link: route('solutions.commande.livraison'),
   },
   {
     name: 'Colis & Courriers',
@@ -45,7 +45,7 @@ const features = [
     color: 'text-amber-500',
     bgColor: 'bg-amber-50',
     borderColor: 'border-amber-200',
-    link: '#securite',
+    link: route('solutions.colis.courriers'),
   },
   {
     name: 'Autres Services Premium',
@@ -54,17 +54,17 @@ const features = [
     color: 'text-indigo-500',
     bgColor: 'bg-indigo-50',
     borderColor: 'border-indigo-200',
-    link: '#global',
+    link: '#',
   },
-  {
-    name: 'Analyses détaillées',
-    description: 'Suivez vos performances avec des tableaux de bord intuitifs.',
-    icon: ChartBar,
-    color: 'text-cyan-500',
-    bgColor: 'bg-cyan-50',
-    borderColor: 'border-cyan-200',
-    link: '#analytics',
-  },
+  // {
+  //   name: 'Analyses détaillées',
+  //   description: 'Suivez vos performances avec des tableaux de bord intuitifs.',
+  //   icon: ChartBar,
+  //   color: 'text-cyan-500',
+  //   bgColor: 'bg-cyan-50',
+  //   borderColor: 'border-cyan-200',
+  //   link: '#',
+  // },
 ];
 
 export default function Features() {
@@ -144,25 +144,27 @@ export default function Features() {
                   <p className="text-gray-600 mb-6 line-clamp-2">
                     {feature.description}
                   </p>
-                  <a
-                    href={feature.link}
-                    className={`inline-flex items-center text-sm font-medium ${feature.color} hover:opacity-80 transition-opacity`}
-                  >
-                    En savoir plus
-                    <svg
-                      className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                  {feature.link && feature.link !== '#' && (
+                    <a
+                      href={feature.link}
+                      className={`inline-flex items-center text-sm font-medium ${feature.color} hover:opacity-80 transition-opacity`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </a>
+                      En savoir plus
+                      <svg
+                        className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </a>
+                  )}
                 </div>
 
                 {/* Hover Effect Background */}

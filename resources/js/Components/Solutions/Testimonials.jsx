@@ -3,34 +3,31 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    content: "L'intégration de cette plateforme a révolutionné notre gestion des livraisons. Le support client est exceptionnel !",
-    author: "Marie Dubois",
+    content: "L'intégration de cette plateforme a simplifié nos réservations de taxis-motos à Conakry. Un service client toujours disponible !",
+    author: "Aminata Diallo",
     role: "Directrice des Opérations",
-    company: "Express Market",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    company: "Sily Transport Conakry",
+    image: "https://img.freepik.com/free-photo/close-up-beautiful-african-woman-portrait_23-2148960573.jpg?uid=P109492898&ga=GA1.1.471702674.1723729231&semt=ais_hybrid", // Chemin local
   },
   {
-    content: "Une solution complète qui nous a permis d'optimiser nos services de transport et de paiement. Très satisfait !",
-    author: "Thomas Martin",
+    content: "Une solution complète qui nous a permis de mieux gérer les livraisons de produits locaux dans le quartier de Kaloum.",
+    author: "Mamadou Camara",
     role: "CEO",
-    company: "Transport Plus",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    company: "Madina Express",
+    image: "https://img.freepik.com/free-photo/close-up-executive-with-white-shirt-blue-suit_1139-135.jpg?uid=P109492898&ga=GA1.1.471702674.1723729231&semt=ais_hybrid", // Chemin local
   },
   {
-    content: "La fiabilité et la rapidité du service ont considérablement amélioré la satisfaction de nos clients.",
-    author: "Sophie Bernard",
+    content: "Grâce à cette plateforme, nos clients reçoivent leurs commandes rapidement et en toute confiance, partout dans la capitale.",
+    author: "Fatoumata Bah",
     role: "Responsable Logistique",
-    company: "Rapid Delivery",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    company: "Conakry Livraison Rapide",
+    image: "https://img.freepik.com/free-photo/casual-woman-white-jacket-chic-smart_1303-3272.jpg?uid=P109492898&ga=GA1.1.471702674.1723729231&semt=ais_hybrid", // Chemin local
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-gray-50 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center"
@@ -61,11 +58,11 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <div className="p-8">
-                <div className="flex items-center mb-4">
+                {/* <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
-                </div>
+                </div> */}
                 <blockquote className="text-lg text-gray-500 mb-8">
                   "{testimonial.content}"
                 </blockquote>
