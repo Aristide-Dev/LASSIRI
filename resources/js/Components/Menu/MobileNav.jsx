@@ -53,7 +53,7 @@ export const MobileNav = ({
                       setAboutOpen?.(true);
                     }
                   }}
-                  className={`w-full flex items-center px-2 py-3 rounded-md transition-colors text-md font-medium 
+                  className={`w-full flex items-center px-2 py-3 mt-2 rounded-md transition-colors text-md font-medium 
                     ${
                       isActive
                         ? 'bg-primary-800 text-white'
@@ -96,7 +96,7 @@ export const MobileNav = ({
             <div key={item.label} className="border-b border-gray-100 last:border-0">
               <button
                 onClick={() => toggleSubmenu(item.label)}
-                className={`w-full flex items-center justify-between px-2 py-3 transition-colors text-md font-medium rounded-md
+                className={`w-full flex items-center justify-between px-2 py-3 mt-2 transition-colors text-md font-medium rounded-md
                   ${
                     isDropdownActive
                       ? 'bg-primary-800 text-white'
@@ -116,7 +116,7 @@ export const MobileNav = ({
               </button>
 
               {openSubmenus[item.label] && (
-                <div className="pl-6 pt-1 pb-3 bg-gray-200">
+                <div className="pl-6 pt-1 pb-3 bg-gray-100 shadow-xl">
                   {item.children.map((child) => {
                     const isChildActive = child.href && isActiveRoute(child.href);
 

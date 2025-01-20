@@ -19,7 +19,11 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 // Centre d'aide
 Route::get('/centre-aide', [WelcomeController::class, 'helpCenter'])->name('centre.aide');
 Route::get('/comment-ca-marche', [WelcomeController::class, 'howToWork'])->name('comment.ca.marche');
-Route::get('/a-propos', [WelcomeController::class, 'about'])->name('a.propos');
+Route::get('/a-propos', [WelcomeController::class, 'about'])->name('about.index');
+Route::get('/inside-lassiri', [WelcomeController::class, 'insideLassiri'])->name('inside.lassiri');
+Route::get('/agences', [WelcomeController::class, 'agences'])->name('about.agences');
+Route::get('/carriere', [WelcomeController::class, 'carriere'])->name('about.carriere');
+Route::get('/investisseurs', [WelcomeController::class, 'investisseurs'])->name('about.investisseurs');
 
 /*
 |--------------------------------------------------------------------------

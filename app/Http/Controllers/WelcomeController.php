@@ -27,4 +27,24 @@ class WelcomeController extends Controller
     {
         return Inertia::render('About');
     }
+
+    public function insideLassiri(): Response
+    {
+        return Inertia::render('InsideLassiri');
+    }
+
+    public function agences(): Response
+    {
+        return Inertia::render('Agences');
+    }
+
+    public function carriere(): Response
+    {
+        return Inertia::render('Carriere');
+    }
+
+    public function investisseurs(): Response
+    {
+        return Inertia::render('Investisseurs');
+    }
 }

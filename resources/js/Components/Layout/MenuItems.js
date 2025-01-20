@@ -14,6 +14,14 @@ import {
   Bike,
   Car,
   BadgeHelp,
+  CreditCard,
+  ShoppingCart,
+  FileText,
+  Building,
+  Newspaper,
+  GraduationCap,
+  LineChart,
+  MapPin
 } from 'lucide-react';
 
 export const menuItems = [
@@ -37,8 +45,8 @@ export const menuItems = [
       {
         label: 'Transactions Financière',
         href: 'solutions.transactions.finances',
-        icon: ClipboardList,
-        description: 'Analysez et suivez l’historique de vos échanges financiers.',
+        icon: CreditCard,
+        description: 'Analysez et suivez l\'historique de vos échanges financiers.',
       },
       {
         label: 'Paiements',
@@ -55,20 +63,20 @@ export const menuItems = [
       {
         label: 'Commande & Livraison',
         href: 'solutions.commande.livraison',
-        icon: Package,
+        icon: ShoppingCart,
         description: 'Recevez vos commandes rapidement et en toute sécurité.',
       },
       {
         label: 'Colis & Courriers',
         href: 'solutions.colis.courriers',
-        icon: ClipboardList,
-        description: 'Analysez et suivez l’historique de vos échanges financiers.',
+        icon: Package,
+        description: 'Analysez et suivez l\'historique de vos échanges financiers.',
       },
     ],
   },
   {
     label: 'Partenariats',
-    icon: Building2,
+    icon: Users,
     actif: 'partenariat.*',
     children: [
       {
@@ -92,7 +100,7 @@ export const menuItems = [
       {
         label: 'Marchand & Paiements',
         href: 'partenariat.marchand.paiement',
-        icon: DollarSign,
+        icon: Building,
         description: 'Proposez un service de paiement sécurisé à vos clients.',
       },
       {
@@ -104,17 +112,55 @@ export const menuItems = [
     ],
   },
   {
-    label: "Centre d’Aide",
+    label: 'À propos',
+    icon: Info,
+    // On veut activer ce menu si route().current('solutions.*')
+    actif: 'about.*',
+    children: [
+      {
+        label: 'À propos de nous',
+        href: 'about.index',
+        icon: Building2,
+        description: 'Qui nous sommes et ce que nous faisons',
+      },
+      {
+        label: 'Inside LASSIRI',
+        href: 'inside.lassiri',
+        icon: Newspaper,
+        description: 'Nouvelles et histoires de notre blog officiel',
+      },
+      {
+        label: 'Carrières',
+        href: 'about.carriere',
+        icon: GraduationCap,
+        description: 'Rejoignez-nous pour notre mission de faire avancer l\'économie locale.',
+      },
+      {
+        label: 'Relations avec les investisseurs',
+        href: 'about.investisseurs',
+        icon: LineChart,
+        description: 'Information de nos investisseurs',
+      },
+      {
+        label: 'Agences',
+        href: 'about.agences',
+        icon: MapPin,
+        description: 'Decouvrez nos agences dans le grand conakry',
+      },
+    ],
+  },
+  {
+    label: "Centre d'Aide",
     icon: BadgeHelp,
     href: 'centre.aide', // => route('a.propos')
   },
-  {
-    label: 'À propos',
-    icon: Info,
-    href: null,
-    type: 'action',
-    actionKey: 'openAbout',
-  },
+  // {
+  //   label: 'À propos',
+  //   icon: Info,
+  //   href: null,
+  //   type: 'action',
+  //   actionKey: 'openAbout',
+  // },
   
   // {
   //   label: 'À propos',
@@ -124,7 +170,7 @@ export const menuItems = [
   {
     label: 'Telechargement',
     icon: Download,
-    // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
+    // Ce n'est pas un lien, c'est une action => ouvre un offcanvas
     href: null,
     type: 'action',
     actionKey: 'openDownload',
@@ -132,7 +178,7 @@ export const menuItems = [
   {
     label: 'Contact',
     icon: PhoneCall,
-    // Ce n’est pas un lien, c’est une action => ouvre un offcanvas
+    // Ce n'est pas un lien, c'est une action => ouvre un offcanvas
     href: null,
     type: 'action',
     actionKey: 'openContact',
