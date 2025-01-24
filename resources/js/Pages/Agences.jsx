@@ -315,11 +315,27 @@ function Agences() {
               <RecenterMap coords={userLocation} />
 
               {/* Tuiles (Stadia maps ou autre) */}
-              <TileLayer
+              {/* <TileLayer
                 url="https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; OpenStreetMap contributors'
                 
+              /> */}
+              {/* Remplacer la section TileLayer */}
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               />
+              {/* // Option 1 : CartoDB */}
+              {/* <TileLayer
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+              /> */}
+
+              {/* // Option 2 : Jawg Maps (style clair) */}
+              {/* <TileLayer
+                url="https://tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token=anonymous"
+                attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              /> */}
 
               {/* Marqueur de la position utilisateur */}
               {userLocation && (
