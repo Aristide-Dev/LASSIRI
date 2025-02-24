@@ -11,7 +11,15 @@ import DownloadModal from '@/Components/Layout/ModalOffcanvas/DownloadModal';
 import AboutOffcanvas from '@/Components/Layout/ModalOffcanvas/AboutOffcanvas';
 import LoaderOverlay from '@/Components/LoaderOverlay'; // Votre loader (overlay)
 
-export default function AppLayout({ children }) {
+export default function AppLayout({ 
+  children, 
+  contactOpen, 
+  setContactOpen,
+  downloadOpen,
+  setDownloadOpen,
+  aboutOpen,
+  setAboutOpen
+}) {
   const { flash } = usePage().props;
 
   // État "transitioning" : indique qu'Inertia fait un changement de page
@@ -28,9 +36,6 @@ export default function AppLayout({ children }) {
 
   // États pour vos modals/offcanvas
   const [isLoading, setIsLoading] = useRemember(false);
-  const [contactOpen, setContactOpen] = useState(false);
-  const [downloadOpen, setDownloadOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
 
   const updateState = (updates) => {
     setState((prev) => ({ ...prev, ...updates }));
