@@ -1,3 +1,4 @@
+import React from 'react';
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/Layouts/AppLayout';
 import SearchBar from '@/Components/HelpCenter/SearchBar';
@@ -5,7 +6,7 @@ import Categories from '@/Components/HelpCenter/Categories';
 import FAQ from '@/Components/HelpCenter/FAQ';
 import ContactSupport from '@/Components/HelpCenter/ContactSupport';
 
-export default function HelpCenter() {
+function HelpCenter() {
   return (
     <AppLayout>
       <Head>
@@ -25,3 +26,5 @@ export default function HelpCenter() {
     </AppLayout>
   );
 }
+
+export default HelpCenter;
