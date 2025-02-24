@@ -44,8 +44,18 @@ const footerSections = [
   {
     title: 'Légal',
     links: [
-      { label: 'Confidentialité', href: '#' },
-      { label: 'CGU', href: '#' },
+      { label: 'Politique de confidentialité', href: route('centre.privacy') },
+      { label: 'Conditions générales', href: route('centre.terms') },
+    ],
+  },
+  {
+    title: 'Aide',
+    links: [
+      { label: 'Centre d\'aide', href: route('centre.aide') },
+      { label: 'Tutoriel', href: route('centre.tutoriel') },
+      { label: 'FAQ', href: route('centre.faq') },
+      { label: 'À propos', href: null, type: 'action', actionKey: 'openAbout' },
+      { label: 'Contact', href: null, type: 'action', actionKey: 'openContact' },
     ],
   },
 ];

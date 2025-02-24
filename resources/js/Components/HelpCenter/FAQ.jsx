@@ -1,73 +1,63 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const faqs = [
-  {
-    question: "Comment créer un compte ?",
-    answer: "Pour créer un compte, cliquez sur le bouton 'Inscription' en haut à droite de la page. Remplissez le formulaire avec vos informations personnelles et suivez les instructions."
-  },
-  {
-    question: "Comment réserver un transport ?",
-    answer: "Connectez-vous à votre compte, accédez à la section 'Transport', sélectionnez votre destination et vos préférences, puis confirmez votre réservation."
-  },
-  {
-    question: "Quels sont les moyens de paiement acceptés ?",
-    answer: "Nous acceptons les cartes bancaires (Visa, Mastercard), les virements bancaires, et les paiements mobiles via notre plateforme sécurisée."
-  },
-  {
-    question: "Comment devenir partenaire ?",
-    answer: "Visitez notre section 'Partenariat', choisissez le type de partenariat qui vous intéresse et suivez le processus d'inscription. Notre équipe vous contactera rapidement."
-  },
-  {
-    question: "Que faire en cas de problème ?",
-    answer: "Contactez notre support client disponible 24/7 via le chat en ligne, par email ou par téléphone. Nous vous répondrons dans les plus brefs délais."
-  }
-];
+export function FAQ() {
+  const [openQuestion, setOpenQuestion] = useState(null);
 
-export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const faqData = [
+    {
+      id: 1,
+      question: "Comment créer un compte Lassiri ?",
+      answer: "Pour créer un compte Lassiri, téléchargez notre application mobile ou visitez notre site web. Cliquez sur 'S'inscrire' et suivez les étapes. Vous aurez besoin d'une pièce d'identité valide et d'un numéro de téléphone."
+    },
+    {
+      id: 2,
+      question: "Quels sont les frais de transaction ?",
+      answer: "Nos frais de transaction sont parmi les plus compétitifs du marché. Les transferts entre comptes Lassiri sont gratuits. Pour les autres services, les frais varient entre 0.5% et 2% selon le type d'opération."
+    },
+    {
+      id: 3,
+      question: "Comment contacter le support client ?",
+      answer: "Notre support client est disponible 24/7. Vous pouvez nous contacter par téléphone au +224 XXX XXX XXX, par email à support@lassiri.com, ou via le chat dans l'application."
+    },
+    {
+      id: 4,
+      question: "Comment devenir partenaire Lassiri ?",
+      answer: "Pour devenir partenaire, visitez notre section 'Partenaires' sur le site web ou contactez notre équipe commerciale. Nous étudierons votre demande et vous proposerons la meilleure solution adaptée à votre activité."
+    },
+    {
+      id: 5,
+      question: "Quelles sont les mesures de sécurité ?",
+      answer: "Nous utilisons les dernières technologies de cryptage et d'authentification pour protéger vos données et transactions. Chaque compte est sécurisé par une authentification à deux facteurs et nos systèmes sont régulièrement audités."
+    }
+  ];
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-extrabold text-gray-900">
-          Questions fréquentes
-        </h2>
-        <p className="mt-4 text-lg text-gray-500">
-          Trouvez rapidement des réponses à vos questions
-        </p>
-      </div>
-      <dl className="space-y-6 divide-y divide-gray-200">
-        {faqs.map((faq, index) => (
-          <div
-            key={faq.question}
-            className={`pt-6 ${index === 0 ? '' : 'border-t border-gray-200'}`}
+    <div className="space-y-6">
+      {faqData.map((faq) => (
+        <div 
+          key={faq.id} 
+          className="border border-gray-200 rounded-lg overflow-hidden"
+        >
+          <button
+            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50"
+            onClick={() => setOpenQuestion(openQuestion === faq.id ? null : faq.id)}
           >
-            <dt className="text-lg">
-              <button
-                className="text-left w-full flex justify-between items-start text-gray-400"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              >
-                <span className="font-medium text-gray-900">{faq.question}</span>
-                <span className="ml-6 h-7 flex items-center">
-                  <ChevronDown
-                    className={`h-6 w-6 transform ${
-                      openIndex === index ? '-rotate-180' : 'rotate-0'
-                    } transition-transform duration-200`}
-                  />
-                </span>
-              </button>
-            </dt>
-            <dd
-              className={`mt-2 pr-12 transition-all duration-200 ${
-                openIndex === index ? 'block opacity-100' : 'hidden opacity-0'
+            <span className="text-lg font-medium text-gray-900">{faq.question}</span>
+            <ChevronDown 
+              className={`w-5 h-5 text-gray-500 transition-transform ${
+                openQuestion === faq.id ? 'transform rotate-180' : ''
               }`}
-            >
-              <p className="text-base text-gray-500">{faq.answer}</p>
-            </dd>
-          </div>
-        ))}
-      </dl>
+            />
+          </button>
+          
+          {openQuestion === faq.id && (
+            <div className="px-6 py-4 bg-gray-50">
+              <p className="text-gray-600">{faq.answer}</p>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

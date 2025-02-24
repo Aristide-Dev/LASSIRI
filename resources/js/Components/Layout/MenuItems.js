@@ -21,7 +21,10 @@ import {
   Newspaper,
   GraduationCap,
   LineChart,
-  MapPin
+  MapPin,
+  BookOpen,
+  HelpCircle,
+  Shield
 } from 'lucide-react';
 
 export const menuItems = [
@@ -145,14 +148,46 @@ export const menuItems = [
         label: 'Agences',
         href: 'about.agences',
         icon: MapPin,
-        description: 'Decouvrez nos agences dans le grand conakry',
+        description: 'Decouvrez nos agences dans le grand conakry',
       },
     ],
   },
   {
     label: "Centre d'Aide",
     icon: BadgeHelp,
-    href: 'centre.aide', // => route('a.propos')
+    actif: 'centre.*',
+    children: [
+      {
+        label: 'Accueil',
+        href: 'centre.aide',
+        icon: Home,
+        description: 'Page principale du centre d\'aide',
+      },
+      {
+        label: 'Tutoriel',
+        href: 'centre.tutoriel',
+        icon: BookOpen,
+        description: 'Guide pas à pas pour utiliser nos services',
+      },
+      {
+        label: 'FAQ',
+        href: 'centre.faq',
+        icon: HelpCircle,
+        description: 'Réponses aux questions fréquemment posées',
+      },
+      {
+        label: 'Politique de confidentialité',
+        href: 'centre.privacy',
+        icon: Shield,
+        description: 'Notre politique de protection des données',
+      },
+      {
+        label: 'Conditions générales',
+        href: 'centre.terms',
+        icon: FileText,
+        description: 'Conditions d\'utilisation de nos services',
+      },
+    ],
   },
   // {
   //   label: 'À propos',

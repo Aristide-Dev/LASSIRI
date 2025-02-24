@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Inertia } from '@inertiajs/inertia'; // Pour écouter les events Inertia
-import { usePage } from '@inertiajs/react';
+import { usePage, router, useRemember } from '@inertiajs/react';
 import { ArrowUp, X, Bell, Menu } from 'lucide-react';
 
 import Header from '@/Components/Layout/Header';
@@ -17,7 +17,7 @@ export default function AppLayout({ children }) {
   // État "transitioning" : indique qu'Inertia fait un changement de page
   const [transitioning, setTransitioning] = useState(false);
 
-  // État pour la gestion de l’UI locale (flash, backToTop, etc.)
+  // État pour la gestion de l'UI locale (flash, backToTop, etc.)
   const [state, setState] = useState({
     showFlash: !!flash.message,
     showBackToTop: false,
@@ -27,15 +27,16 @@ export default function AppLayout({ children }) {
   });
 
   // États pour vos modals/offcanvas
-  const [isContactOpen, setContactOpen] = useState(false);
-  const [isDownloadOpen, setDownloadOpen] = useState(false);
-  const [isAboutOpen, setAboutOpen] = useState(false);
+  const [isLoading, setIsLoading] = useRemember(false);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [downloadOpen, setDownloadOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   const updateState = (updates) => {
     setState((prev) => ({ ...prev, ...updates }));
   };
 
-  // Gérer l’apparition du bouton "Back to Top" selon le scroll
+  // Gérer l'apparition du bouton "Back to Top" selon le scroll
   useEffect(() => {
     const handleScroll = () => {
       updateState({
@@ -56,24 +57,29 @@ export default function AppLayout({ children }) {
     }
   }, [flash.message]);
 
-  // Écouter les événements d’Inertia pour la navigation
+  // Écouter les événements d'Inertia pour la navigation
   useEffect(() => {
-    const onStart = () => setTransitioning(true);
-    const onFinish = () => setTransitioning(false);
-  
-    Inertia.on('start', onStart);
-    Inertia.on('finish', onFinish);
-  
+    const handleStart = () => {
+      setIsLoading(true);
+    };
+
+    const handleFinish = () => {
+      setIsLoading(false);
+    };
+
+    document.addEventListener('inertia:start', handleStart);
+    document.addEventListener('inertia:finish', handleFinish);
+
     return () => {
-      Inertia.off('start', onStart);
-      Inertia.off('finish', onFinish);
+      document.removeEventListener('inertia:start', handleStart);
+      document.removeEventListener('inertia:finish', handleFinish);
     };
   }, []);
   
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Overlay de chargement si on est en pleine transition Inertia */}
-      {transitioning && <LoaderOverlay />}
+      {isLoading && <LoaderOverlay />}
 
       {/* Header */}
       <Header 
@@ -107,15 +113,15 @@ export default function AppLayout({ children }) {
 
       {/* Offcanvas / Modals */}
       <ContactOffcanvas
-        isOpen={isContactOpen}
+        isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
       />
       <DownloadModal
-        isOpen={isDownloadOpen}
+        isOpen={downloadOpen}
         onClose={() => setDownloadOpen(false)}
       />
       <AboutOffcanvas
-        isOpen={isAboutOpen}
+        isOpen={aboutOpen}
         onClose={() => setAboutOpen(false)}
       />
 

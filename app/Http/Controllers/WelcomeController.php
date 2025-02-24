@@ -47,4 +47,24 @@ class WelcomeController extends Controller
     {
         return Inertia::render('Investisseurs');
     }
+
+    public function tutoriel()
+    {
+        return Inertia::render('Help/Tutorial');
+    }
+
+    public function faq()
+    {
+        return Inertia::render('Help/FAQ');
+    }
+
+    public function privacyPolicy()
+    {
+        return Inertia::render('Help/PrivacyPolicy');
+    }
+
+    public function termsConditions()
+    {
+        return Inertia::render('Help/TermsConditions');
+    }
 }

@@ -18,6 +18,10 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 
 // Centre d'aide
 Route::get('/centre-aide', [WelcomeController::class, 'helpCenter'])->name('centre.aide');
+Route::get('/tutoriel', [WelcomeController::class, 'tutoriel'])->name('centre.tutoriel');
+Route::get('/faq', [WelcomeController::class, 'faq'])->name('centre.faq');
+Route::get('/politique-confidentialite', [WelcomeController::class, 'privacyPolicy'])->name('centre.privacy');
+Route::get('/conditions-generales', [WelcomeController::class, 'termsConditions'])->name('centre.terms');
 Route::get('/comment-ca-marche', [WelcomeController::class, 'howToWork'])->name('comment.ca.marche');
 Route::get('/a-propos', [WelcomeController::class, 'about'])->name('about.index');
 Route::get('/inside-lassiri', [WelcomeController::class, 'insideLassiri'])->name('inside.lassiri');
