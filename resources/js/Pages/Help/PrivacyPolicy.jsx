@@ -1,320 +1,268 @@
 import React from 'react';
 import AppLayout from '@/Layouts/AppLayout';
 
-function PrivacyPolicy() {
+export default function TermsConditions() {
   return (
     <AppLayout>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
-          
-          <p className="text-gray-600 mb-8">
-            This Privacy Policy (“Policy”) describes how VIDITEC DMCC (“Kulu,” “we,” “our,” or “us”) collects, uses, discloses, and processes your Personal Information when you visit our websites (collectively, the “Site”), download or use our digital wallet mobile application, or use any of our products or services (collectively, the “Services”) in Guinea, West Africa.
-          </p>
-          <p className="text-gray-600 mb-8">
-            By accessing or using our Site and Services, you acknowledge that you have read, understood, and agree to be bound by this Policy. If you do not agree, please do not access or use our Site or Services.
-          </p>
+          <div className="text-gray-600">
+            <h1 className="text-4xl font-bold text-gray-900 mb-8">
+              POLITIQUE DE CONFIDENTIALITÉ
+            </h1>
 
-          <div className="space-y-8">
-            {/* 1. APPLICABLE LAW & DATA CONTROLLER & DATA PROCESSOR */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                1. APPLICABLE LAW & DATA CONTROLLER & DATA PROCESSOR
-              </h2>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600">
-                <li>
-                  <strong>Local Compliance:</strong> We are committed to complying with applicable data protection laws and regulations in Guinea, as well as other relevant West African frameworks.
-                </li>
-                <li>
-                  <strong>Data Controller:</strong> For purposes of this Policy, DIWALGUI is the Data Controller, determining the purposes and means of controlling your Personal Information.
-                </li>
-                <li>
-                  <strong>Data Processor:</strong> For purposes of this Policy, VIDITEC DMCC is the Data Processor, determining the purposes and means of processing your Personal Information.
-                </li>
-              </ul>
-            </section>
+            <p>
+              La présente Politique de Confidentialité (« Politique ») décrit comment VIDITEC DMCC (« lassiri », « nous », « notre » ou « nos ») collecte, utilise, divulgue et traite vos Informations Personnelles lorsque vous visitez nos sites web (collectivement, le « Site »), téléchargez ou utilisez notre application mobile de portefeuille numérique, ou utilisez l’un de nos produits ou services (collectivement, les « Services ») en Guinée, Afrique de l’Ouest.
+            </p>
+            <p>
+              En accédant à notre Site et à nos Services ou en les utilisant, vous reconnaissez avoir lu, compris et accepté d’être lié par cette Politique. Si vous n’êtes pas d’accord, veuillez ne pas accéder à notre Site ni utiliser nos Services.
+            </p>
 
-            {/* 2. PERSONAL INFORMATION WE COLLECT */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                2. PERSONAL INFORMATION WE COLLECT
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <h3 className="text-xl font-medium">Information You Provide</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>
-                    <strong>Account Details:</strong> When you create an account to use the Services, you may provide your name, email address, phone number, and other required information.
-                  </li>
-                  <li>
-                    <strong>Communication Information:</strong> If you contact us for support or inquiries, we may collect your name, contact details, and the content of your message(s).
-                  </li>
-                </ul>
-                <h3 className="text-xl font-medium mt-4">Information We Collect Automatically</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>
-                    <strong>Log Data:</strong> When you access the Site, we may automatically collect information such as your IP address, browser type, and how you interact with our Site.
-                  </li>
-                  <li>
-                    <strong>Usage Data:</strong> We may automatically gather information about your use of the Services, including content viewed, features used, timestamps, and other device information.
-                  </li>
-                  <li>
-                    <strong>Analytics:</strong> We may use analytics tools (e.g., cookies, web beacons) to measure usage patterns and improve the user experience.
-                  </li>
-                </ul>
-                <p className="mt-4">
-                  <strong>Card Payment Information:</strong> We do not store or collect payment card details.
-                </p>
-              </div>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 1 : LOI APPLICABLE & RESPONSABLE DU TRAITEMENT & SOUS-TRAITANT
+            </h2>
+            <ol className="list-decimal pl-6 mb-4">
+              <li>
+                <strong>Conformité locale</strong> : Nous nous engageons à respecter les lois et réglementations applicables en matière de protection des données en Guinée, ainsi que les autres cadres pertinents en Afrique de l’Ouest.
+              </li>
+              <li>
+                <strong>Responsable du traitement</strong> : Aux fins de la présente Politique, DIWALGUI est le Responsable du Traitement, déterminant les finalités et les moyens de contrôler vos Informations Personnelles.
+              </li>
+              <li>
+                <strong>Sous-traitant</strong> : Aux fins de la présente Politique, VIDITEC DMCC est le Sous-traitant, déterminant les finalités et les moyens de traiter vos Informations Personnelles.
+              </li>
+            </ol>
 
-            {/* 3. LAWFUL BASES FOR PROCESSING */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                3. LAWFUL BASES FOR PROCESSING
-              </h2>
-              <p className="text-gray-600">
-                We process your Personal Information under one or more of the following legal bases:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
-                <li>
-                  <strong>Consent:</strong> Where you have given consent (e.g., for marketing communications, certain analytics).
-                </li>
-                <li>
-                  <strong>Contract:</strong> Where processing is necessary to fulfill a contractual obligation (e.g., to provide our Services).
-                </li>
-                <li>
-                  <strong>Legal Obligation:</strong> Where processing is required to comply with applicable law.
-                </li>
-                <li>
-                  <strong>Legitimate Interests:</strong> Where processing is necessary for our legitimate business interests, such as enhancing security or improving our Services, provided those interests are not overridden by your rights.
-                </li>
-              </ul>
-            </section>
+            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
+              A.1.1 - INFORMATIONS PERSONNELLES QUE NOUS COLLECTONS
+            </h3>
+            <p>
+              Nous collectons des informations susceptibles de vous identifier, seules ou en combinaison avec d’autres informations (« Informations Personnelles »), comme suit :
+            </p>
+            <h4 className="text-lg font-semibold text-gray-900 mt-4 mb-2">1. Informations que vous fournissez</h4>
+            <ul className="list-disc pl-6 mb-4">
+              <li>
+                <strong>Détails du compte</strong> : Lorsque vous créez un compte pour utiliser les Services, vous pouvez fournir votre nom, votre adresse e-mail, votre numéro de téléphone et d’autres informations requises.
+              </li>
+              <li>
+                <strong>Informations de communication</strong> : Si vous nous contactez pour une assistance ou pour des questions, nous pouvons collecter votre nom, vos coordonnées et le contenu de vos messages.
+              </li>
+            </ul>
+            <h4 className="text-lg font-semibold text-gray-900 mt-4 mb-2">2. Informations que nous collectons automatiquement</h4>
+            <ul className="list-disc pl-6 mb-4">
+              <li>
+                <strong>Données de journal (Log Data)</strong> : Lorsque vous accédez au Site, nous pouvons collecter automatiquement des informations telles que votre adresse IP, le type de navigateur et la façon dont vous interagissez avec notre Site.
+              </li>
+              <li>
+                <strong>Données d’utilisation</strong> : Nous pouvons recueillir automatiquement des informations sur votre utilisation des Services, y compris le contenu consulté, les fonctionnalités utilisées, les horodatages et d’autres informations relatives à l’appareil.
+              </li>
+              <li>
+                <strong>Analyses</strong> : Nous pouvons utiliser des outils d’analyse (par exemple, cookies, balises web) pour mesurer les tendances d’utilisation et améliorer l’expérience utilisateur.
+              </li>
+            </ul>
+            <h4 className="text-lg font-semibold text-gray-900 mt-4 mb-2">3. Informations de paiement par carte</h4>
+            <p className="mb-4">
+              Nous ne stockons ni ne collectons les détails de carte de paiement.
+            </p>
 
-            {/* 4. HOW WE USE YOUR PERSONAL INFORMATION */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                4. HOW WE USE YOUR PERSONAL INFORMATION
-              </h2>
-              <p className="text-gray-600">
-                We may use your Personal Information for the following purposes:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
-                <li>
-                  <strong>Providing Services:</strong> To set up and maintain your account, process transactions, and deliver our Services.
-                </li>
-                <li>
-                  <strong>Communication:</strong> To respond to your inquiries, send administrative notifications, and provide support.
-                </li>
-                <li>
-                  <strong>Personalization:</strong> To tailor your user experience, including recommended features or content based on your preferences.
-                </li>
-                <li>
-                  <strong>Internal Research & Improvement:</strong> To conduct research, monitor usage trends, and enhance or develop new products and Services.
-                </li>
-                <li>
-                  <strong>Security & Fraud Prevention:</strong> To detect, investigate, and respond to security incidents or fraudulent activities.
-                </li>
-                <li>
-                  <strong>Legal Compliance:</strong> To comply with applicable laws, regulatory requirements, or governmental requests.
-                </li>
-              </ul>
-            </section>
+            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
+              A.1.2 - BASES LÉGALES DU TRAITEMENT
+            </h3>
+            <ul className="list-disc pl-6 mb-4">
+              <li>
+                <strong>Consentement</strong> : Lorsque vous avez donné votre consentement (par exemple, pour les communications marketing ou certaines analyses).
+              </li>
+              <li>
+                <strong>Contrat</strong> : Lorsque le traitement est nécessaire à l’exécution d’une obligation contractuelle (par exemple, pour fournir nos Services).
+              </li>
+              <li>
+                <strong>Obligation légale</strong> : Lorsque le traitement est requis pour se conformer à la loi applicable.
+              </li>
+              <li>
+                <strong>Intérêts légitimes</strong> : Lorsque le traitement est nécessaire à nos intérêts légitimes, tels que l’amélioration de la sécurité ou l’optimisation de nos Services, à condition que ces intérêts ne soient pas supplantés par vos droits.
+              </li>
+            </ul>
 
-            {/* 5. SHARING AND DISCLOSURE OF PERSONAL INFORMATION */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                5. SHARING AND DISCLOSURE OF PERSONAL INFORMATION
-              </h2>
-              <p className="text-gray-600">
-                We do not sell your Personal Information. However, we may share or disclose your data as follows:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
-                <li>
-                  <strong>Vendors & Service Providers:</strong> We may share data with third-party vendors who perform services on our behalf (e.g., hosting, analytics). They process your data according to our instructions and are bound by confidentiality obligations.
-                </li>
-                <li>
-                  <strong>Business Transfers:</strong> In the event of a merger, acquisition, reorganization, bankruptcy, receivership, or sale of all or a portion of our assets, your Personal Information may be transferred to the acquiring entity.
-                </li>
-                <li>
-                  <strong>Legal Requirements:</strong> We may disclose Personal Information if required by law, court order, or other legitimate governmental request, or if necessary to protect our rights or the rights of others.
-                </li>
-                <li>
-                  <strong>Affiliates:</strong> We may share your Personal Information with our affiliated entities, who will use it in accordance with this Policy.
-                </li>
-                <li>
-                  <strong>Other Users:</strong> Certain information, such as your username or activities within the Service, may be visible to other users if you choose to engage in public features.
-                </li>
-              </ul>
-            </section>
+            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
+              A.1.3 - COMMENT NOUS UTILISONS VOS INFORMATIONS PERSONNELLES
+            </h3>
+            <ol className="list-decimal pl-6 mb-4">
+              <li>
+                <strong>Fourniture des Services</strong> : Pour configurer et maintenir votre compte, traiter des transactions et proposer nos Services.
+              </li>
+              <li>
+                <strong>Communication</strong> : Pour répondre à vos questions, envoyer des notifications administratives et assurer un support.
+              </li>
+              <li>
+                <strong>Personnalisation</strong> : Pour adapter votre expérience utilisateur, notamment en recommandant des fonctionnalités ou du contenu en fonction de vos préférences.
+              </li>
+              <li>
+                <strong>Recherche interne & Amélioration</strong> : Pour mener des recherches, surveiller les tendances d’utilisation et améliorer ou développer de nouveaux produits et Services.
+              </li>
+              <li>
+                <strong>Sécurité & Prévention de la fraude</strong> : Pour détecter, enquêter et répondre à des incidents de sécurité ou à des activités frauduleuses.
+              </li>
+              <li>
+                <strong>Conformité légale</strong> : Pour respecter les lois en vigueur, les exigences réglementaires ou les demandes gouvernementales.
+              </li>
+            </ol>
 
-            {/* 6. CROSS-BORDER DATA TRANSFERS */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                6. CROSS-BORDER DATA TRANSFERS
-              </h2>
-              <p className="text-gray-600">
-                Your Personal Information may be transferred to and processed in countries other than Guinea where our servers, affiliates, or service providers are located. We take steps to ensure adequate protections are in place, such as using contractual clauses or other data transfer mechanisms recognized by applicable laws.
-              </p>
-            </section>
+            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
+              A.1.4 - PARTAGE ET DIVULGATION DES INFORMATIONS PERSONNELLES
+            </h3>
+            <p>
+              Nous ne vendons pas vos Informations Personnelles. Cependant, nous pouvons partager ou divulguer vos données comme suit :
+            </p>
+            <ul className="list-disc pl-6 mb-4">
+              <li>
+                <strong>Fournisseurs & Prestataires de services</strong> : Nous pouvons partager des données avec des prestataires tiers qui fournissent des services en notre nom (par exemple, hébergement, analyses). Ils traitent vos données selon nos instructions et sont tenus par des obligations de confidentialité.
+              </li>
+              <li>
+                <strong>Transferts d’entreprise</strong> : En cas de fusion, d’acquisition, de réorganisation, de faillite, de mise sous séquestre ou de vente de tout ou partie de nos actifs, vos Informations Personnelles peuvent être transférées à l’entité acquéreuse.
+              </li>
+              <li>
+                <strong>Exigences légales</strong> : Nous pouvons divulguer vos Informations Personnelles si la loi, une ordonnance du tribunal ou une demande gouvernementale légitime l’exige, ou si cela est nécessaire pour protéger nos droits ou les droits d’autrui.
+              </li>
+              <li>
+                <strong>Affiliés</strong> : Nous pouvons partager vos Informations Personnelles avec nos entités affiliées, qui les utiliseront conformément à la présente Politique.
+              </li>
+              <li>
+                <strong>Autres utilisateurs</strong> : Certaines informations, comme votre nom d’utilisateur ou vos activités au sein du Service, peuvent être visibles par d’autres utilisateurs si vous choisissez d’interagir avec des fonctionnalités publiques.
+              </li>
+            </ul>
 
-            {/* 7. DATA RETENTION */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                7. DATA RETENTION
-              </h2>
-              <p className="text-gray-600">
-                We retain your Personal Information only for as long as necessary to fulfill the purposes outlined in this Policy, or as required by law. Retention periods may vary depending on the type of data and the specific legal or operational needs:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
-                <li>
-                  <strong>Account Information:</strong> Retained until the account is deleted or otherwise deactivated.
-                </li>
-                <li>
-                  <strong>Transaction Data:</strong> Retained as required for financial and regulatory compliance up to 7 years.
-                </li>
-                <li>
-                  <strong>Marketing Data:</strong> Retained until you opt-out or withdraw consent.
-                </li>
-              </ul>
-            </section>
+            <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
+              A.1.5 - TRANSFERTS TRANSFRONTALIERS DE DONNÉES
+            </h3>
+            <p className="mb-4">
+              Vos Informations Personnelles peuvent être transférées et traitées dans des pays autres que la Guinée, où se trouvent nos serveurs, nos affiliés ou nos prestataires de services. Nous prenons des mesures pour garantir une protection adéquate, notamment l’utilisation de clauses contractuelles ou d’autres mécanismes de transfert de données reconnus par les lois en vigueur.
+            </p>
 
-            {/* 8. USER RIGHTS & CHOICES */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                8. USER RIGHTS & CHOICES
-              </h2>
-              <p className="text-gray-600">
-                In accordance with local laws, you may have the following rights over your Personal Information:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
-                <li>
-                  <strong>Access:</strong> Request details about the Personal Information we hold about you.
-                </li>
-                <li>
-                  <strong>Rectification:</strong> Correct or update inaccurate or incomplete information.
-                </li>
-                <li>
-                  <strong>Erasure:</strong> Request deletion of your Personal Information, subject to legal exemptions.
-                </li>
-                <li>
-                  <strong>Restriction:</strong> Request that we limit the processing of your Personal Information.
-                </li>
-                <li>
-                  <strong>Objection:</strong> Object to the processing of your Personal Information for specific purposes, such as direct marketing.
-                </li>
-                <li>
-                  <strong>Data Portability:</strong> Request a copy of your Personal Information in a structured, commonly used format.
-                </li>
-                <li>
-                  <strong>Withdraw Consent:</strong> Where processing is based on consent, you can withdraw your consent at any time.
-                </li>
-              </ul>
-              <p className="text-gray-600 mt-2">
-                To exercise these rights or if you have questions, please contact us at: <a href="mailto:privacy@kulu.com" className="text-blue-600 hover:text-blue-800">privacy@kulu.com</a>. We will respond within a reasonable time frame, in accordance with applicable laws.
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 2 : DURÉE DE CONSERVATION
+            </h2>
+            <ul className="list-disc pl-6 mb-4">
+              <li>
+                <strong>Informations de compte</strong> : Conservées jusqu’à la suppression ou la désactivation du compte.
+              </li>
+              <li>
+                <strong>Données de transaction</strong> : Conservées conformément aux exigences financières et réglementaires, pouvant aller jusqu’à 7 ans.
+              </li>
+              <li>
+                <strong>Données marketing</strong> : Conservées jusqu’à ce que vous vous désinscriviez ou retiriez votre consentement.
+              </li>
+            </ul>
 
-            {/* 9. COOKIES & TRACKING TECHNOLOGIES */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                9. COOKIES & TRACKING TECHNOLOGIES
-              </h2>
-              <p className="text-gray-600">
-                We use cookies and similar technologies to:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
-                <li>Recognize you and your device when you return to our Site.</li>
-                <li>Remember your preferences and settings.</li>
-                <li>Analyze Site performance and user engagement.</li>
-              </ul>
-              <p className="text-gray-600 mt-2">
-                You can control cookies through your browser settings or dedicated tools. However, disabling cookies may affect the functionality and features of our Site or Services.
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 3 : DROITS ET CHOIX DE L’UTILISATEUR
+            </h2>
+            <p>
+              Conformément aux lois locales, vous disposez des droits suivants sur vos Informations Personnelles :
+            </p>
+            <ol className="list-decimal pl-6 mb-4">
+              <li>
+                <strong>Accès</strong> : Demander des détails sur vos Informations Personnelles que nous détenons.
+              </li>
+              <li>
+                <strong>Rectification</strong> : Corriger ou mettre à jour des informations inexactes ou incomplètes.
+              </li>
+              <li>
+                <strong>Effacement</strong> : Demander la suppression de vos Informations Personnelles, sous réserve d’exemptions légales.
+              </li>
+              <li>
+                <strong>Limitation</strong> : Demander que nous limitions le traitement de vos Informations Personnelles.
+              </li>
+              <li>
+                <strong>Opposition</strong> : Vous opposer au traitement de vos Informations Personnelles à des fins spécifiques, comme le marketing direct.
+              </li>
+              <li>
+                <strong>Portabilité des données</strong> : Demander une copie de vos Informations Personnelles dans un format structuré et couramment utilisé.
+              </li>
+              <li>
+                <strong>Retrait du consentement</strong> : Lorsque le traitement est fondé sur le consentement, vous pouvez le retirer à tout moment.
+              </li>
+            </ol>
+            <p>
+              Pour exercer ces droits ou pour toute question, contactez-nous à l’adresse : <a href="mailto:www.lassiri@.com">www.lassiri@.com</a>. Nous répondrons dans un délai raisonnable, conformément aux lois en vigueur.
+            </p>
 
-            {/* 10. ADVERTISING & MARKETING */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                10. ADVERTISING & MARKETING
-              </h2>
-              <p className="text-gray-600">
-                We may use your Personal Information to send you marketing communications or show you relevant advertisements. You can unsubscribe from marketing emails at any time by clicking the “unsubscribe” link in the email or by contacting us at <a href="mailto:privacy@kulu.com" className="text-blue-600 hover:text-blue-800">privacy@kulu.com</a>. For targeted ads, you can manage your preferences through your device settings or any provided opt-out links.
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 4 : COOKIES ET TECHNOLOGIES DE SUIVI
+            </h2>
+            <ul className="list-disc pl-6 mb-4">
+              <li>
+                Vous reconnaître, ainsi que votre appareil, lors de votre retour sur notre Site.
+              </li>
+              <li>
+                Mémoriser vos préférences et vos paramètres.
+              </li>
+              <li>
+                Analyser les performances du Site et l’engagement des utilisateurs.
+              </li>
+            </ul>
+            <p>
+              Vous pouvez contrôler les cookies via les paramètres de votre navigateur ou des outils dédiés. Toutefois, la désactivation des cookies peut affecter certaines fonctionnalités de notre Site ou de nos Services.
+            </p>
 
-            {/* 11. MINORS */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                11. MINORS
-              </h2>
-              <p className="text-gray-600">
-                Our Services are not intended for individuals under the age of 18 years old. If you believe that a minor has provided us with Personal Information, please contact us at <a href="mailto:privacy@kulu.com" className="text-blue-600 hover:text-blue-800">privacy@kulu.com</a> and we will work to delete the information promptly.
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 5 : PUBLICITÉ ET MARKETING
+            </h2>
+            <p className="mb-4">
+              Nous pouvons utiliser vos Informations Personnelles pour vous envoyer des communications marketing ou pour vous présenter des publicités pertinentes. Vous pouvez vous désabonner des e-mails marketing à tout moment en cliquant sur le lien « désabonner » dans l’e-mail ou en nous contactant à <a href="mailto:www.lassiri@.com">www.lassiri@.com</a>. Pour les publicités ciblées, vous pouvez gérer vos préférences via les paramètres de votre appareil ou les liens de désactivation fournis.
+            </p>
 
-            {/* 12. SECURITY & BREACH NOTIFICATION */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                12. SECURITY & BREACH NOTIFICATION
-              </h2>
-              <p className="text-gray-600">
-                We employ reasonable physical, technical, and administrative measures designed to protect your Personal Information from unauthorized access, use, or disclosure. However, no security measures are infallible. If a security breach occurs, we will take appropriate steps in accordance with applicable laws, including notifying affected individuals and relevant authorities if required.
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 6 : MINEURS
+            </h2>
+            <p className="mb-4">
+              Nos Services ne sont pas destinés aux personnes de moins de 18 ans. Si vous pensez qu’un mineur nous a fourni des Informations Personnelles, veuillez nous contacter à <a href="mailto:www.lassiri@.com">www.lassiri@.com</a> et nous prendrons les mesures nécessaires pour supprimer ces informations rapidement.
+            </p>
 
-            {/* 13. OPT-OUT MECHANISMS */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                13. OPT-OUT MECHANISMS
-              </h2>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600">
-                <li>
-                  <strong>Analytics:</strong> You may opt-out of analytics tools where available (e.g., using a browser extension or our in-app settings).
-                </li>
-                <li>
-                  <strong>Third-Party Sharing:</strong> For non-essential data sharing, you can contact us at <a href="mailto:privacy@kulu.com" className="text-blue-600 hover:text-blue-800">privacy@kulu.com</a> to inquire about your opt-out options.
-                </li>
-                <li>
-                  <strong>Marketing Communications:</strong> You can unsubscribe from marketing emails by clicking the link in the email or contacting us at <a href="mailto:privacy@kulu.com" className="text-blue-600 hover:text-blue-800">privacy@kulu.com</a>.
-                </li>
-              </ul>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 7 : SÉCURITÉ ET NOTIFICATION DE VIOLATION
+            </h2>
+            <p className="mb-4">
+              Nous mettons en place des mesures physiques, techniques et administratives appropriées pour protéger vos Informations Personnelles contre tout accès, utilisation ou divulgation non autorisés. Cependant, aucune mesure de sécurité n'est totalement infaillible. En cas de violation de la sécurité, nous prendrons les mesures nécessaires conformément aux lois en vigueur, y compris en informant les personnes concernées et les autorités compétentes si cela s'avère nécessaire.
+            </p>
 
-            {/* 14. CONTACT INFORMATION & DATA PROTECTION OFFICER */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                14. CONTACT INFORMATION & DATA PROTECTION OFFICER (IF APPLICABLE)
-              </h2>
-              <p className="text-gray-600">
-                For data protection inquiries, concerns, or to exercise your rights, please contact:
-              </p>
-              <p className="text-gray-600 mt-2">
-                <strong>VIDITEC DMCC</strong><br />
-                Attn: Data Protection Officer<br />
-                Email: <a href="mailto:privacy@kulu.com" className="text-blue-600 hover:text-blue-800">privacy@kulu.com</a><br />
-                Address: Office 2705-D, JBC4, Cluster N, Jumeirah Lakes Towers, Dubai - United Arab Emirates
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 8 : MÉCANISMES DE DÉSINSCRIPTION
+            </h2>
+            <ol className="list-decimal pl-6 mb-4">
+              <li>
+                <strong>Analyses</strong> : Vous pouvez désactiver les outils d’analyse lorsque cela est possible (par exemple, via une extension de navigateur ou les paramètres de notre application).
+              </li>
+              <li>
+                <strong>Partage avec des tiers</strong> : Pour le partage de données non essentiel, vous pouvez nous contacter à <a href="mailto:www.lassiri@.com">www.lassiri@.com</a> pour connaître vos options de désinscription.
+              </li>
+              <li>
+                <strong>Communications marketing</strong> : Vous pouvez vous désabonner des e-mails marketing en cliquant sur le lien figurant dans l’e-mail ou en nous contactant à <a href="mailto:www.lassiri@.com">www.lassiri@.com</a>.
+              </li>
+            </ol>
 
-            {/* 15. CHANGES TO THIS PRIVACY POLICY */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                15. CHANGES TO THIS PRIVACY POLICY
-              </h2>
-              <p className="text-gray-600">
-                We may update this Policy from time to time to reflect changes in our business, technology, legal requirements, or for other reasons. When we make changes, we will post the updated Policy on our Site and indicate the “Last Updated” date. Any changes become effective immediately upon posting.
-              </p>
-              <p className="text-gray-600 mt-2">
-                <strong>Version:</strong> 1.1<br />
-                <strong>Last Updated:</strong> January 13, 2025
-              </p>
-            </section>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 9 : COORDONNÉES ET DÉLÉGUÉ À LA PROTECTION DES DONNÉES (LE CAS ÉCHÉANT)
+            </h2>
+            <p className="mb-4">
+              Pour toute question relative à la protection des données, pour soumettre une préoccupation ou pour exercer vos droits, veuillez contacter :<br />
+              <strong>VIDITEC DMCC</strong> À l’attention du Délégué à la Protection des Données<br />
+              Email : <a href="mailto:www.lassiri@.com">www.lassiri@.com</a><br />
+              Address : Office 2705-D, JBC4, Cluster N, Jumeirah Lakes Towers, Dubaï – Émirats arabes unis
+            </p>
+
+            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+              ARTICLE 10 : MODIFICATIONS DE CETTE POLITIQUE DE CONFIDENTIALITÉ
+            </h2>
+            <p className="mb-4">
+              Nous pouvons mettre à jour cette Politique périodiquement pour refléter les évolutions de nos activités, des technologies, des exigences légales ou pour d'autres raisons. Lors de chaque mise à jour, nous publierons la nouvelle version sur notre Site et indiquerons la date de la « Dernière mise à jour ». Toute modification prendra effet dès sa publication.
+            </p>
+            <p className="mb-4">
+              <strong>Version :</strong> 1.1<br />
+              <strong>Dernière mise à jour :</strong> 25 février 2025
+            </p>
           </div>
         </div>
       </div>
     </AppLayout>
   );
 }
-
-export default PrivacyPolicy;

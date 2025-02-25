@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Slider from 'react-slick';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronRight, ChevronLeft } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {
-  ChevronRight,
-  ChevronLeft,
-} from 'lucide-react';
 
 const slides = [
   {
@@ -70,8 +66,6 @@ const slides = [
   },
 ];
 
-
-
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -103,23 +97,18 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-
-      {/* --- SLIDER IMAGES --- */}
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="relative h-[80vh] min-h-[650px]">
-            {/* Image de fond */}
             <div className="absolute inset-0">
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover transform scale-105 animate-ken-burns"
               />
-              {/* Overlay en dégradé */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
             </div>
 
-            {/* Contenu textuel */}
             <div className="relative container mx-auto px-4 h-full flex items-center">
               <div className="text-white max-w-2xl animate-fade-in-up">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
